@@ -7,15 +7,12 @@ block content
         - each song, i in songs
             li
                 = song.name
-                = song.badge
-                = song.dob
-                = song.isloved
-                = song._id
+                = song.artist
                 form(action='/songs/#{song._id}/edit',method='post',enctype='application/x-www-form-urlencoded')
                     input(type='hidden',value='DELETE',name='_method')
                     button(type='submit').
                         Delete
-                p 
+                p
                     a(href='/songs/#{song._id}/edit') Edit
                 p
                     a(href='/songs/#{song._id}') Show

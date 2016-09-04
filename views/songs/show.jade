@@ -2,8 +2,11 @@ extends ../layout
 
 block content
     h1.
-        Infophoto #{song._id}
+      Song Details
     p Name: #{song.name}
-    p Badge: #{song.badge}
-    p DOB: #{songdob}
-    p Is Loved: #{song.isloved}
+    p Artist: #{song.artist}
+
+    p
+        a(href='/songs/#{song._id}/edit') Edit
+    p
+        a(href='/') Home

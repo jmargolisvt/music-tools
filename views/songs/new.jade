@@ -4,13 +4,9 @@ block content
 	h1.
 		#{title}
 	form#formAddSong(name="addsong",method="post",action="/songs")
-		p Name: 
-			input#inputName(type="text", placeholder="ex. John Smith", name="name")
-		p Badge:
-			input#inputBadge(type="number", placeholder="ex. 123456", name="badge")
-		p DOB: 
-			input#inputDob(type="date", name="dob")
-		p Are You Loved?: 
-			input#inputIsLoved(type="checkbox", name="isloved")
+		p Name:
+			input#inputName(type="text", placeholder="Free Bird", name="name")
+		p Artist:
+			input#inputArtist(type="text", placeholder="Lynard Skynard", name="artist")
 		p
 			button#btnSubmit(type="submit") submit

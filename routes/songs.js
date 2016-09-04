@@ -47,19 +47,14 @@ router.route('/')
     .post(function(req, res) {
         // Get values from POST request. These can be done through forms or REST calls. These rely on the "name" attributes for forms
         var name = req.body.name;
-        var badge = req.body.badge;
-        var dob = req.body.dob;
-        var company = req.body.company;
-        var isloved = req.body.isloved;
+        var artist = req.body.artist;
         //call the create function for our database
         mongoose.model('Song').create({
             name : name,
-            badge : badge,
-            dob : dob,
-            isloved : isloved
+            artist : artist
         }, function (err, song) {
               if (err) {
-                  res.send("There was a problem adding the information to the database.");
+                  res.send("There was a problem adding the information to the database." + err);
               } else {
                   //Song has been created
                   console.log('POST creating new song: ' + song);
@@ -123,12 +118,9 @@ router.route('/:id')
         console.log('GET Error: There was a problem retrieving: ' + err);
       } else {
         console.log('GET Retrieving ID: ' + song._id);
-        var songdob = song.dob.toISOString();
-        songdob = songdob.substring(0, songdob.indexOf('T'))
         res.format({
           html: function(){
               res.render('songs/show', {
-                "songdob" : songdob,
                 "song" : song
               });
           },
@@ -150,14 +142,11 @@ router.route('/:id/edit')
 	        } else {
 	            //Return the song
 	            console.log('GET Retrieving ID: ' + song._id);
-              var songdob = song.dob.toISOString();
-              songdob = songdob.substring(0, songdob.indexOf('T'))
 	            res.format({
 	                //HTML response will render the 'edit.jade' template
 	                html: function(){
 	                       res.render('songs/edit', {
 	                          title: 'Song' + song._id,
-                            "songdob" : songdob,
 	                          "song" : song
 	                      });
 	                 },
@@ -173,19 +162,14 @@ router.route('/:id/edit')
 	.put(function(req, res) {
 	    // Get our REST or form values. These rely on the "name" attributes
 	    var name = req.body.name;
-	    var badge = req.body.badge;
-	    var dob = req.body.dob;
-	    var company = req.body.company;
-	    var isloved = req.body.isloved;
+	    var artist = req.body.artist;
 
 	    //find the document by ID
 	    mongoose.model('Song').findById(req.id, function (err, song) {
 	        //update it
 	        song.update({
 	            name : name,
-	            badge : badge,
-	            dob : dob,
-	            isloved : isloved
+	            artist : artist,
 	        }, function (err, songID) {
 	          if (err) {
 	              res.send("There was a problem updating the information to the database: " + err);
