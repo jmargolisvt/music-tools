@@ -1,5 +1,5 @@
 /*--- SONG BLOCKS ---*/
-div.song {
+.song {
     background: aliceblue;
     padding: 2% 1%;
     border: 1px solid gray;
@@ -9,4 +9,28 @@ div.song {
         display: inline-flex;
         padding: 0 3%;
     }
+}
+
+/*--- DRAG AND DROP ---*/
+[draggable] {
+    user-select: none;
+}
+
+/*--- GENERAL---*/
+h1 {
+  padding: 2% 1%;
+  background: limegreen;
+  color: white;
+  text-shadow: 2px 2px 10px #000;
+}
+
+h3 {
+  padding: 2% 1%;
+  background: blueviolet;
+  color: white;
+  text-shadow: 2px 2px 10px #000;
+}
+
+.container-fluid {
+  margin: 3% 0;
 }

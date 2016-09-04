@@ -1,8 +1,7 @@
 extends ../layout
 
 block content
-    h3.
-      Add a New Song
+    h3.text-center Add a New Song
     form#formAddSong(name="addsong",method="post",action="/songs")
       p Name:
         input#inputName(type="text", placeholder="Free Bird", name="name")
@@ -10,12 +9,11 @@ block content
         input#inputArtist(type="text", placeholder="Lynard Skynard", name="artist")
       p
         button#btnSubmit(type="submit") submit
-    h1.
-         #{title}
+    h1.text-center #{title}
     - each song, i in songs
-        div.song
+        ol.song(draggable='true' ondragenter='dragenter(event)' ondragstart='dragstart(event)')
           ul
-            li.min-width
+            li
               b
                 = song.name
             li by&nbsp;

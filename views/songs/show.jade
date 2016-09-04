@@ -1,12 +1,11 @@
 extends ../layout
 
 block content
-    h1.
-      Song Details
+    h1.text-center #{song.name} -- Song Details
     p Name: #{song.name}
     p Artist: #{song.artist}
 
     p
         a(href='/songs/#{song._id}/edit') Edit
     p
-        a(href='/') Home
+        a(href='/songs') All Songs

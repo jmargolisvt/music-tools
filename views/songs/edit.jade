@@ -1,8 +1,7 @@
 extends ../layout
 
 block content
-	h1.
-		Song ID #{song._id}
+	h1.text-center #{song.name}
 	form(action='/songs/#{song._id}/edit',method='post',name='updatesong',enctype='application/x-www-form-urlencoded')
 		p Name:
 			input#inputName(type='text', value='#{song.name}', name='name')
