@@ -1,0 +1,11 @@
+extends ../layout
+
+block content
+	h1.
+		#{title}
+	form#formAddSetlist(name="addsetlist",method="post",action="/setlists")
+		p Name:
+			input#inputName(type="text", placeholder="Free Bird", name="name")
+		p Artist:
+			input#inputArtist(type="text", placeholder="Lynard Skynard", name="songArray")
+			button#btnSubmit(type="submit") submit

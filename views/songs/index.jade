@@ -1,15 +1,14 @@
 extends ../layout
 
 block content
-    h3.text-center Add a New Song
+    h3.bg-primary.text-center Add a New Song
     form#formAddSong(name="addsong",method="post",action="/songs")
-      p Name:
+      label.control-label Name:
         input#inputName(type="text", placeholder="Free Bird", name="name")
-      p Artist:
+      label.control-label Artist:
         input#inputArtist(type="text", placeholder="Lynard Skynard", name="artist")
-      p
-        button#btnSubmit(type="submit") submit
-    h1.text-center #{title}
+      button#btnSubmit.btn.btn-primary(type="submit") Add Song
+    h3.bg-primary.text-center #{title}
     - each song, i in songs
         ol.song(draggable='true' ondragenter='dragenter(event)' ondragstart='dragstart(event)')
           ul
@@ -25,6 +24,5 @@ block content
             li.pull-right
               form(action='/songs/#{song._id}/edit',method='post',enctype='application/x-www-form-urlencoded')
                   input(type='hidden',value='DELETE',name='_method')
-                  // should be a button
                   button(type='submit').
                       Delete

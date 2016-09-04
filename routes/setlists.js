@@ -16,75 +16,78 @@ router.use(methodOverride(function(req, res){
       }
 }))
 
-//build the REST operations at the base for songs
-//this will be accessible from http://127.0.0.1:3000/songs if the default route for / is left unchanged
+//build the REST operations at the base for setlists
+//this will be accessible from http://127.0.0.1:3000/setlists if the default route for / is left unchanged
 router.route('/')
-    //GET all songs
+    //GET all setlists
     .get(function(req, res, next) {
-        //retrieve all songs from Mongo
-        mongoose.model('Song').find({}, function (err, songs) {
+        //retrieve all setlists from Mongo
+        mongoose.model('Setlist').find({}, function (err, setlists) {
               if (err) {
                   return console.error(err);
               } else {
                   //respond to both HTML and JSON. JSON responses require 'Accept: application/json;' in the Request Header
                   res.format({
-                      //HTML response will render the index.jade file in the views/songs folder. We are also setting "songs" to be an accessible variable in our jade view
+                      //HTML response will render the index.jade file in the views/setlists folder. We are also setting "setlists" to be an accessible variable in our jade view
                     html: function(){
-                        res.render('songs/index', {
-                              title: 'All my Songs',
-                              "songs" : songs
+                        res.render('setlists/index', {
+                              title: 'All my Setlists',
+                              "setlists" : setlists
                           });
                     },
-                    //JSON response will show all songs in JSON format
+                    //JSON response will show all setlists in JSON format
                     json: function(){
-                        res.json(songs);
+                        res.json(setlists);
                     }
                 });
               }
         });
     })
-    //POST a new song
+    //POST a new setlist
     .post(function(req, res) {
         // Get values from POST request. These can be done through forms or REST calls. These rely on the "name" attributes for forms
+        var list = req.body.array;
         var name = req.body.name;
-        var artist = req.body.artist;
+        console.log(req);
         //call the create function for our database
-        mongoose.model('Song').create({
-            name : name,
-            artist : artist
-        }, function (err, song) {
+        mongoose.model('Setlist').create({
+            setlistArray: { $push: { song: list } },
+            name: name
+        }, function (err, setlist) {
               if (err) {
+                  console.log('ERROR: ' + err);
                   res.send("There was a problem adding the information to the database." + err);
               } else {
-                  //Song has been created
-                  console.log('POST creating new song: ' + song);
+                  //Setlist has been created
+                  console.log("req: " + req);
+                  console.log('POST creating new setlist: ' + setlist);
                   res.format({
                       //HTML response will set the location and redirect back to the home page. You could also create a 'success' page if that's your thing
                     html: function(){
                         // If it worked, set the header so the address bar doesn't still say /adduser
-                        res.location("songs");
+                        res.location("setlists");
                         // And forward to success page
-                        res.redirect("/songs");
+                        res.redirect("/setlists");
                     },
-                    //JSON response will show the newly created song
+                    //JSON response will show the newly created setlist
                     json: function(){
-                        res.json(song);
+                        res.json(setlist);
                     }
                 });
               }
         })
     });
 
-/* GET New Song page. */
+/* GET New Setlist page. */
 router.get('/new', function(req, res) {
-    res.render('songs/new', { title: 'Add New Song' });
+    res.render('setlists/new', { title: 'Create a New Setlist' });
 });
 
 // route middleware to validate :id
 router.param('id', function(req, res, next, id) {
     //console.log('validating ' + id + ' exists');
     //find the ID in the Database
-    mongoose.model('Song').findById(id, function (err, song) {
+    mongoose.model('Setlist').findById(id, function (err, setlist) {
         //if it isn't found, we are going to repond with 404
         if (err) {
             console.log(id + ' was not found');
@@ -102,7 +105,7 @@ router.param('id', function(req, res, next, id) {
         //if it is found we continue on
         } else {
             //uncomment this next line if you want to see every JSON document response for every GET/PUT/DELETE call
-            //console.log(song);
+            //console.log(setlist);
             // once validation is done save the new item in the req
             req.id = id;
             // go to the next thing
@@ -113,19 +116,19 @@ router.param('id', function(req, res, next, id) {
 
 router.route('/:id')
   .get(function(req, res) {
-    mongoose.model('Song').findById(req.id, function (err, song) {
+    mongoose.model('Setlist').findById(req.id, function (err, setlist) {
       if (err) {
         console.log('GET Error: There was a problem retrieving: ' + err);
       } else {
-        console.log('GET Retrieving ID: ' + song._id);
+        console.log('GET Retrieving ID: ' + setlist._id);
         res.format({
           html: function(){
-              res.render('songs/show', {
-                "song" : song
+              res.render('setlists/show', {
+                "setlist" : setlist
               });
           },
           json: function(){
-              res.json(song);
+              res.json(setlist);
           }
         });
       }
@@ -133,44 +136,42 @@ router.route('/:id')
   });
 
 router.route('/:id/edit')
-	//GET the individual song by Mongo ID
+	//GET the individual setlist by Mongo ID
 	.get(function(req, res) {
-	    //search for the song within Mongo
-	    mongoose.model('Song').findById(req.id, function (err, song) {
+	    //search for the setlist within Mongo
+	    mongoose.model('Setlist').findById(req.id, function (err, setlist) {
 	        if (err) {
 	            console.log('GET Error: There was a problem retrieving: ' + err);
 	        } else {
-	            //Return the song
-	            console.log('GET Retrieving ID: ' + song._id);
+	            //Return the setlist
+	            console.log('GET Retrieving ID: ' + setlist._id);
 	            res.format({
 	                //HTML response will render the 'edit.jade' template
 	                html: function(){
-	                       res.render('songs/edit', {
-	                          title: 'Song' + song._id,
-	                          "song" : song
+	                       res.render('setlists/edit', {
+	                          title: 'Setlist' + setlist._id,
+	                          "setlist" : setlist
 	                      });
 	                 },
 	                 //JSON response will return the JSON output
 	                json: function(){
-	                       res.json(song);
+	                       res.json(setlist);
 	                 }
 	            });
 	        }
 	    });
 	})
-	//PUT to update a song by ID
+	//PUT to update a setlist by ID
 	.put(function(req, res) {
 	    // Get our REST or form values. These rely on the "name" attributes
-	    var name = req.body.name;
-	    var artist = req.body.artist;
+	    var setlistArray = req.body.setlistArray;
 
 	    //find the document by ID
-	    mongoose.model('Song').findById(req.id, function (err, song) {
+	    mongoose.model('Setlist').findById(req.id, function (err, setlist) {
 	        //update it
-	        song.update({
-	            name : name,
-	            artist : artist,
-	        }, function (err, songID) {
+	        setlist.update({
+	            setlistArray: setlistArray
+	        }, function (err, setlistID) {
 	          if (err) {
 	              res.send("There was a problem updating the information to the database: " + err);
 	          }
@@ -178,40 +179,40 @@ router.route('/:id/edit')
 	                  //HTML responds by going back to the page or you can be fancy and create a new view that shows a success page.
 	                  res.format({
 	                      html: function(){
-	                           res.redirect("/songs/" + song._id);
+	                           res.redirect("/setlists/" + setlist._id);
 	                     },
 	                     //JSON responds showing the updated values
 	                    json: function(){
-	                           res.json(song);
+	                           res.json(setlist);
 	                     }
 	                  });
 	           }
 	        })
 	    });
 	})
-	//DELETE a Song by ID
+	//DELETE a Setlist by ID
 	.delete(function (req, res){
-	    //find song by ID
-	    mongoose.model('Song').findById(req.id, function (err, song) {
+	    //find setlist by ID
+	    mongoose.model('Setlist').findById(req.id, function (err, setlist) {
 	        if (err) {
 	            return console.error(err);
 	        } else {
 	            //remove it from Mongo
-	            song.remove(function (err, song) {
+	            setlist.remove(function (err, setlist) {
 	                if (err) {
 	                    return console.error(err);
 	                } else {
 	                    //Returning success messages saying it was deleted
-	                    console.log('DELETE removing ID: ' + song._id);
+	                    console.log('DELETE removing ID: ' + setlist._id);
 	                    res.format({
 	                        //HTML returns us back to the main page, or you can create a success page
 	                          html: function(){
-	                               res.redirect("/songs");
+	                               res.redirect("/setlists");
 	                         },
 	                         //JSON returns the item with the message that is has been deleted
 	                        json: function(){
 	                               res.json({message : 'deleted',
-	                                   item : song
+	                                   item : setlist
 	                               });
 	                         }
 	                      });

@@ -28,5 +28,6 @@ Licensing
 express-node-mongo-skeleton is freely distributed under the MIT License. See LICENSE for details
 
 ///////////////////////////////////////
+Not sure why, but cd into node_modules/mongodb and run npm install to get past the initial error message.
 
 node-sass -o css style.scss -w

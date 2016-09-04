@@ -6,12 +6,12 @@ var express = require('express'),
     bodyParser = require('body-parser');
 
 var db = require('./model/db'),
-    song = require('./model/songs');
+    song = require('./model/songs'),
+    setlist = require('./model/setlists');
 
 var routes = require('./routes/index'),
-    songs = require('./routes/songs');
-
-//var users = require('./routes/users');
+    songs = require('./routes/songs'),
+    setlists = require('./routes/setlists');
 
 var app = express();
 
@@ -32,7 +32,7 @@ app.use('/public/js', express.static(__dirname + '/node_modules/bootstrap/dist/j
 
 app.use('/', routes);
 app.use('/songs', songs);
-//app.use('/users', users);
+app.use('/setlists', setlists);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

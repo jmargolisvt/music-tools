@@ -1,0 +1,10 @@
+extends ../layout
+
+block content
+    h1.bg-primary.text-center #{setlist.name} -- Song Details
+    p Name: #{setlist.name}
+
+    p
+        a(href='/setlists/#{setlist._id}/edit') Edit
+    p
+        a(href='/setlists') All Setlists

@@ -1,7 +1,7 @@
 extends ../layout
 
 block content
-	h1.text-center #{song.name}
+	h1.bg-primary.text-center #{song.name}
 	form(action='/songs/#{song._id}/edit',method='post',name='updatesong',enctype='application/x-www-form-urlencoded')
 		p Name:
 			input#inputName(type='text', value='#{song.name}', name='name')
@@ -10,5 +10,5 @@ block content
 		p
 			input(type='hidden',value='PUT',name='_method')
 		p
-			button#btnSubmit(type='submit').
+			button.btn.btn-default.btn-primary#btnSubmit(type='submit').
 				Update
