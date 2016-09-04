@@ -2,11 +2,10 @@ doctype html
 html
   head
     title= title
-    link(rel='stylesheet', href='/stylesheets/style.css')
+    link(rel='stylesheet', href='/stylesheets/css/bootstrap.min.css')
+    link(rel='stylesheet', href='/stylesheets/css/style.css')
+    script(type='text/javascript' src='')
+    script(type='text/javascript' src='')
   body
-    block content
-    p
-      a(href='/songs/new') Add New Song
-
-    p
-      a(href='/songs') View All Songs
+    .container-fluid
+      block content

@@ -1,18 +1,32 @@
 extends ../layout
 
 block content
+    h3.
+      Add a New Song
+    form#formAddSong(name="addsong",method="post",action="/songs")
+      p Name:
+        input#inputName(type="text", placeholder="Free Bird", name="name")
+      p Artist:
+        input#inputArtist(type="text", placeholder="Lynard Skynard", name="artist")
+      p
+        button#btnSubmit(type="submit") submit
     h1.
          #{title}
-    ul
-        - each song, i in songs
-            li
+    - each song, i in songs
+        div.song
+          ul
+            li.min-width
+              b
                 = song.name
-                = song.artist
-                form(action='/songs/#{song._id}/edit',method='post',enctype='application/x-www-form-urlencoded')
-                    input(type='hidden',value='DELETE',name='_method')
-                    button(type='submit').
-                        Delete
-                p
-                    a(href='/songs/#{song._id}/edit') Edit
-                p
-                    a(href='/songs/#{song._id}') Show
+            li by&nbsp;
+              = song.artist
+            li.pull-right
+                a(href='/songs/#{song._id}/edit') Edit
+            li.pull-right
+                a(href='/songs/#{song._id}') Show
+            li.pull-right
+              form(action='/songs/#{song._id}/edit',method='post',enctype='application/x-www-form-urlencoded')
+                  input(type='hidden',value='DELETE',name='_method')
+                  // should be a button
+                  button(type='submit').
+                      Delete

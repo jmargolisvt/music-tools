@@ -27,6 +27,9 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+ // redirect bootstrap JS
+app.use('/public/js', express.static(__dirname + '/node_modules/bootstrap/dist/js'));
+
 app.use('/', routes);
 app.use('/songs', songs);
 //app.use('/users', users);

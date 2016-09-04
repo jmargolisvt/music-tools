@@ -3,7 +3,7 @@ express-node-mongo-skeleton
 express-node-mongo-skeleton was made to have a simple skeleton for a completed Web App ready to go for demonstration purposes and learning how to build CRUD & REST operations into a Node.js Web App. This is the final example that is demonstrated in [How to Create a Complete Express.js + Node.js + MongoDB CRUD and REST Skeleton](https://www.airpair.com/javascript/complete-expressjs-nodejs-mongodb-crud-skeleton)
 
 ## Installation
-- Perform a clone of this repo. 
+- Perform a clone of this repo.
 - Make sure MongoDB is installed (`brew install mongodb`)
 - Create a MongoDB database named `enmskeleton` (`use enmskeleton`)
 - Install packages and start the express.js web service (`npm install && npm start`)
@@ -12,7 +12,7 @@ express-node-mongo-skeleton was made to have a simple skeleton for a completed W
 ## Usage Instructions
 All of the MVC pieces are built, but are also rudimentary and not flashy. The root of our webapp goes to the express.js landing page, but there is a schema created for a new object called `songs`. To access `songs`, follow the route that is already in place by going to `http://127.0.0.1:3000/songs`.
 
-Add a new song by going to `http://127.0.0.1:3000/songs/new`. 
+Add a new song by going to `http://127.0.0.1:3000/songs/new`.
 <center><img src="https://s3.amazonaws.com/kennyonetime/song_new.png" width="400"></center>
 
 After submitting, this will take you back to the index page where you can now `Show` or `Edit` or `Delete` that song record from the UI
@@ -26,3 +26,7 @@ Create a fork of the project into your own reposity. Make all your necessary cha
 Licensing
 ---------
 express-node-mongo-skeleton is freely distributed under the MIT License. See LICENSE for details
+
+///////////////////////////////////////
+
+node-sass -o css style.scss -w
