@@ -1,0 +1,21 @@
+extends ../layout
+
+block content
+    h3.bg-primary.text-center #{title}
+    form(action='/setslists/#{setlist._id}/',method='post',enctype='application/x-www-form-urlencoded')
+        input(type='hidden',value='',name='_method')
+        button(type='submit' onclick='getOrder()') Save Set List
+    h5 All Songs
+    - each song, i in songs
+        ol.song(data-id='#{song._id}' draggable='true' ondragenter='dragenter(event)' ondragstart='dragstart(event)')
+          ul
+            li
+              b
+                = song.name
+            li by&nbsp;
+              = song.artist
+
+script.
+  function getOrder() {
+    console.log('got it');
+  }

@@ -145,22 +145,29 @@ router.route('/:id/edit')
 	        } else {
 	            //Return the setlist
 	            console.log('GET Retrieving ID: ' + setlist._id);
-	            res.format({
-	                //HTML response will render the 'edit.jade' template
-	                html: function(){
-	                       res.render('setlists/edit', {
-	                          title: 'Setlist' + setlist._id,
-	                          "setlist" : setlist
-	                      });
+              //now get all the available songs
+              mongoose.model('Song').find({}, function(err, songs) {
+                if (err) {
+                  console.log('ERROR: ' + err);
+                } else {
+	                 res.format({
+  	                //HTML response will render the 'edit.jade' template
+  	                html: function(){
+  	                       res.render('setlists/edit', {
+  	                          title: setlist.name,
+  	                          setlist : setlist,
+                              songs : songs
+  	                      });
 	                 },
 	                 //JSON response will return the JSON output
 	                json: function(){
 	                       res.json(setlist);
+                         res.json(songs);
 	                 }
 	            });
 	        }
-	    });
-	})
+	    })
+	};})})
 	//PUT to update a setlist by ID
 	.put(function(req, res) {
 	    // Get our REST or form values. These rely on the "name" attributes
