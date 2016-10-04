@@ -3,6 +3,7 @@ extends ../layout
 block content
     h1.bg-primary.text-center #{setlist.name} -- Song Details
     p Name: #{setlist.name}
+    p SongArray: #{setlist.songArray}
 
     p
         a(href='/setlists/#{setlist._id}/edit') Edit

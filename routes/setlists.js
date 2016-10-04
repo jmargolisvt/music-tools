@@ -105,7 +105,7 @@ router.param('id', function(req, res, next, id) {
         //if it is found we continue on
         } else {
             //uncomment this next line if you want to see every JSON document response for every GET/PUT/DELETE call
-            //console.log(setlist);
+            console.log(setlist);
             // once validation is done save the new item in the req
             req.id = id;
             // go to the next thing
@@ -171,13 +171,14 @@ router.route('/:id/edit')
 	//PUT to update a setlist by ID
 	.put(function(req, res) {
 	    // Get our REST or form values. These rely on the "name" attributes
-	    var setlistArray = req.body.setlistArray;
+	    var songArray = req.body.songArray;
 
 	    //find the document by ID
 	    mongoose.model('Setlist').findById(req.id, function (err, setlist) {
 	        //update it
 	        setlist.update({
-	            setlistArray: setlistArray
+            //"$addToSet" : { "songArray" :  songArray}
+	            songArray: songArray
 	        }, function (err, setlistID) {
 	          if (err) {
 	              res.send("There was a problem updating the information to the database: " + err);
