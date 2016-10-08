@@ -8,9 +8,14 @@ html
     script(type='text/javascript', src='/js/jquery.min.js')
     script(type='text/javascript', src='/js/custom.js')
   body
-    .container-fluid
-      nav.navbar.navbar-default.navbar-static-top
-        .container
+    nav
+      ul.container-fluid
+        li
           a(href="/setlists/new") Create new setlist
+        li
           a(href="/setlists") See all setlists
+        li
+          a(href="/songs/new") Create new song
+        li
+          a(href="/songs") See all songs
       block content

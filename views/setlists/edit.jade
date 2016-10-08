@@ -6,17 +6,16 @@ block content
         input(type='hidden',value='',name='songArray',id='songArray')
         input(type='hidden',value='PUT',name='_method')
         button(type='submit') Save Set List
-    h5 All Songs
     if setlist.songArray
       - each name, id in JSON.parse(setlist.songArray)
-        div.song(data-id='#{id}' data-name='#{name}' ondragend='document.getElementById("songArray").value = getOrder();' draggable='true' ondragenter='dragenter(event)' ondragstart='dragstart(event)')
+        div.song.edit(data-id='#{id}' data-name='#{name}' ondragend='document.getElementById("songArray").value = getOrder();' draggable='true' ondragenter='dragenter(event)' ondragstart='dragstart(event)')
           ul
             li
               b
                 = name
     else
       - each song, i in songs
-          div.song(data-id='#{song._id}' data-name='#{song.name}' ondragend='document.getElementById("songArray").value = getOrder();' draggable='true' ondragenter='dragenter(event)' ondragstart='dragstart(event)')
+          div.song.edit(data-id='#{song._id}' data-name='#{song.name}' ondragend='document.getElementById("songArray").value = getOrder();' draggable='true' ondragenter='dragenter(event)' ondragstart='dragstart(event)')
             ul
               li
                 b

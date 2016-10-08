@@ -1,10 +1,9 @@
 extends ../layout
 
 block content
-  HELLOOOO
   h3.bg-primary.text-center #{title}
   - each setlist, i in setlists
-      ol.setlist(draggable='true' ondragenter='dragenter(event)' ondragstart='dragstart(event)')
+      div.setlist(draggable='true' ondragenter='dragenter(event)' ondragstart='dragstart(event)')
         ul
           li
             b

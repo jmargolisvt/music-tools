@@ -1,3 +1,13 @@
+@mixin no-button {
+  background: none;
+  border: none;
+  color: red;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
 /*--- SONG BLOCKS ---*/
 .song {
     background: aliceblue;
@@ -5,9 +15,27 @@
     border: 1px solid gray;
     border-radius: 10px;
 
+    &.edit {
+      width: 30%;
+    }
+
+    ul {
+      display: flex;
+      margin-bottom: 0;
+    }
+
     li {
         display: inline-flex;
         padding: 0 3%;
+
+        &.name {flex: 6;}
+        &.artist {flex: 4;}
+        &.action {flex: 1;}
+    }
+
+    /* make the button look like a link for now */
+    button {
+      @include no-button;
     }
 }
 
@@ -16,12 +44,31 @@
     user-select: none;
 }
 
+/*--- SETLIST ---*/
+.setlist {
+  ul {
+    border-bottom: 1px dotted gray;
+    padding: 2% 0;
+  }
+  li {
+    display: inline-flex;
+    padding: 0 3%;
+  }
+  /* make the button look like a link for now */
+  button {
+    @include no-button;
+  }
+}
+
+/*--- NAV---*/
+
 /*--- GENERAL---*/
 h1, h2, h3 {
   padding: 2% 1%;
   text-shadow: 2px 2px 10px #000;
 }
 
+li {list-style-type: none;}
 
 input {
   margin-right: 5%;

@@ -3,19 +3,57 @@
   background: aliceblue;
   padding: 2% 1%;
   border: 1px solid gray;
-  border-radius: 10px; }
+  border-radius: 10px;
+  /* make the button look like a link for now */ }
+  .song.edit {
+    width: 30%; }
+  .song ul {
+    display: flex;
+    margin-bottom: 0; }
   .song li {
     display: inline-flex;
     padding: 0 3%; }
+    .song li.name {
+      flex: 6; }
+    .song li.artist {
+      flex: 4; }
+    .song li.action {
+      flex: 1; }
+  .song button {
+    background: none;
+    border: none;
+    color: red; }
+    .song button:hover {
+      text-decoration: underline; }
 
 /*--- DRAG AND DROP ---*/
 [draggable] {
   user-select: none; }
 
+/*--- SETLIST ---*/
+.setlist {
+  /* make the button look like a link for now */ }
+  .setlist ul {
+    border-bottom: 1px dotted gray;
+    padding: 2% 0; }
+  .setlist li {
+    display: inline-flex;
+    padding: 0 3%; }
+  .setlist button {
+    background: none;
+    border: none;
+    color: red; }
+    .setlist button:hover {
+      text-decoration: underline; }
+
+/*--- NAV---*/
 /*--- GENERAL---*/
 h1, h2, h3 {
   padding: 2% 1%;
   text-shadow: 2px 2px 10px #000; }
+
+li {
+  list-style-type: none; }
 
 input {
   margin-right: 5%; }

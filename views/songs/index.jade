@@ -12,17 +12,17 @@ block content
     - each song, i in songs
         div.song(draggable='true' ondragenter='dragenter(event)' ondragstart='dragstart(event)')
           ul
-            li
+            li.name
               b
                 = song.name
-            li by&nbsp;
+            li.artist by&nbsp;
               = song.artist
-            li.pull-right
-                a(href='/songs/#{song._id}/edit') Edit
-            li.pull-right
-                a(href='/songs/#{song._id}') Show
-            li.pull-right
+            li.action
               form(action='/songs/#{song._id}/edit',method='post',enctype='application/x-www-form-urlencoded')
                   input(type='hidden',value='DELETE',name='_method')
                   button(type='submit').
                       Delete
+            li.action
+                a(href='/songs/#{song._id}/edit') Edit
+            li.action
+                a(href='/songs/#{song._id}') Show
