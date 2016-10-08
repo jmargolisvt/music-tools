@@ -3,8 +3,10 @@ extends ../layout
 block content
     h1.bg-primary.text-center #{setlist.name} -- Song Details
     p Name: #{setlist.name}
-    p SongArray: #{setlist.songArray}
-
+    p SongArray: #{songArray}
+    ul
+      each i in JSON.parse(songArray)
+        li= i
     p
         a(href='/setlists/#{setlist._id}/edit') Edit
     p

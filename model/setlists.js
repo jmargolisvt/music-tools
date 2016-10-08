@@ -1,6 +1,6 @@
 var mongoose = require('mongoose');
 var setlistSchema = new mongoose.Schema({
   name: String,
-  songArray: Array
+  songArray: Object
 });
 mongoose.model('Setlist', setlistSchema);

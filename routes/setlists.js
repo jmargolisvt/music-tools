@@ -124,7 +124,8 @@ router.route('/:id')
         res.format({
           html: function(){
               res.render('setlists/show', {
-                "setlist" : setlist
+                "setlist" : setlist,
+                "songArray" : setlist.songArray
               });
           },
           json: function(){
