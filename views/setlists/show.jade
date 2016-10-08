@@ -1,12 +1,13 @@
 extends ../layout
 
 block content
-    h1.bg-primary.text-center #{setlist.name} -- Song Details
-    p Name: #{setlist.name}
-    p SongArray: #{songArray}
+    h1.bg-primary.text-center #{setlist.name}
     ul
-      each i in JSON.parse(songArray)
-        li= i
+      each k, v in JSON.parse(songArray)
+        div
+          ul
+            li
+              = k
     p
         a(href='/setlists/#{setlist._id}/edit') Edit
     p

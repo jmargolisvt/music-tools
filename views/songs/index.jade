@@ -10,7 +10,7 @@ block content
       button#btnSubmit.btn.btn-primary(type="submit") Add Song
     h3.bg-primary.text-center #{title}
     - each song, i in songs
-        ol.song(draggable='true' ondragenter='dragenter(event)' ondragstart='dragstart(event)')
+        div.song(draggable='true' ondragenter='dragenter(event)' ondragstart='dragstart(event)')
           ul
             li
               b
