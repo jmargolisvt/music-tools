@@ -11,7 +11,7 @@ function isbefore(a, b) {
     return false;
 }
 
-function dragenter(e) {
+function XXXdragenter(e) {
     if (isbefore(source, e.target)) {
         e.target.parentNode.insertBefore(source, e.target);
     }
@@ -20,7 +20,7 @@ function dragenter(e) {
     }
 }
 
-function dragstart(e) {
-    source = e.target;
-    e.dataTransfer.effectAllowed = 'move';
-}
+// function dragstart(e) {
+//     source = e.target;
+//     e.dataTransfer.effectAllowed = 'move';
+// }

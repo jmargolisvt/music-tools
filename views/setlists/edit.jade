@@ -2,21 +2,33 @@ extends ../layout
 
 block content
     h3.bg-primary.text-center #{title}
-    form(action='/setlists/#{setlist._id}/edit',method='post',enctype='application/x-www-form-urlencoded')
-        input(type='hidden',value='',name='songArray',id='songArray')
-        input(type='hidden',value='PUT',name='_method')
-        button(type='submit') Save Set List
-    if setlist.songArray
-      - each name, id in JSON.parse(setlist.songArray)
-        div.song.edit(data-id='#{id}' data-name='#{name}' ondragend='document.getElementById("songArray").value = getOrder();' draggable='true' ondragenter='dragenter(event)' ondragstart='dragstart(event)')
-          ul
-            li
-              b
-                = name
-    else
-      - each song, i in songs
-          div.song.edit(data-id='#{song._id}' data-name='#{song.name}' ondragend='document.getElementById("songArray").value = getOrder();' draggable='true' ondragenter='dragenter(event)' ondragstart='dragstart(event)')
-            ul
-              li
-                b
-                  = song.name
+    .container-fluid
+      form(action='/setlists/#{setlist._id}/edit',method='post',enctype='application/x-www-form-urlencoded')
+          input(type='hidden',value='',name='songArray',id='songArray')
+          input(type='hidden',value='PUT',name='_method')
+          button(type='submit') Save Set List
+      #all_sets
+        .set-container.drop#set_1
+          h2 Set 1
+        .set-container.drop#set_2
+          h2 Set 2
+        br(style='clear:both')
+
+      #the_bench.drop
+        //- We have a saved order to start with
+        //- ondragend='document.getElementById("songArray").value = getOrder();'
+        if setlist.songArray
+          - each name, id in JSON.parse(setlist.songArray)
+            div.song.edit(data-id='#{id}' data-name='#{name}'  draggable='true' )
+              ul
+                li
+                  b
+                    = name
+        else
+        //- We are starting from scratch with all available songs
+          - each song, i in songs
+              div.song.edit(data-id='#{song._id}' data-name='#{song.name}' ondragend='document.getElementById("songArray").value = getOrder();' draggable='true')
+                ul
+                  li
+                    b
+                      = song.name

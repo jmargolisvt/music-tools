@@ -1,6 +1,7 @@
 extends ../layout
 
 block content
+  #setlist_view
     h1.bg-primary.text-center #{setlist.name}
     ul
       each k, v in JSON.parse(songArray)
@@ -9,6 +10,4 @@ block content
             li
               = k
     p
-        a(href='/setlists/#{setlist._id}/edit') Edit
-    p
-        a(href='/setlists') All Setlists
+        a(href='/setlists/#{setlist._id}/edit') Edit this Setlist

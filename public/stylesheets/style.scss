@@ -17,11 +17,18 @@
 
     &.edit {
       width: 30%;
+      .set-container & {
+        width: 100%;
+      }
     }
 
     ul {
       display: flex;
       margin-bottom: 0;
+      .set-container & {
+        display: block;
+        padding: 0;
+      }
     }
 
     li {
@@ -31,6 +38,8 @@
         &.name {flex: 6;}
         &.artist {flex: 4;}
         &.action {flex: 1;}
+
+
     }
 
     /* make the button look like a link for now */
@@ -42,6 +51,25 @@
 /*--- DRAG AND DROP ---*/
 [draggable] {
     user-select: none;
+}
+
+/*--- EDIT SET STYLES ---*/
+#all_sets {
+  display: flex;
+}
+
+#the_bench {
+  padding: 3%;
+  background-color: cornflowerblue;
+  min-height: 300px;
+}
+
+.set-container {
+  flex: 1;
+  min-height: 300px;
+  border: 1px solid #000;
+  background-color: bisque;
+  text-align: center;
 }
 
 /*--- SETLIST ---*/
@@ -62,8 +90,36 @@
 
 /*--- NAV---*/
 
+nav {
+  li {
+    font-size: 1.2em;
+    display: inline;
+    &:after {
+        content: ' | ';
+    }
+    a {
+      color: #fff;
+    }
+  }
+}
+/*--- HOME PAGE ---*/
+#home {
+  margin: 0 auto;
+  width: 90%;
+  color: #fff;
+}
+
+/*--- SET LIST VIEW ---*/
+#setlist_view {
+  background: #fff;
+}
+
 /*--- GENERAL---*/
-h1, h2, h3 {
+body {
+  background-color: #000;
+}
+
+h1, h3 {
   padding: 2% 1%;
   text-shadow: 2px 2px 10px #000;
 }
@@ -76,4 +132,12 @@ input {
 
 .container-fluid {
   margin: 3% 0;
+}
+
+button[type='submit'] {
+  width: 100%;
+  padding: 2%;
+  margin-bottom: 1%;
+  background: chartreuse;
+  font-weight: bold;
 }
