@@ -50,7 +50,7 @@ console.log(thisDrag[0]);
 
     var songId = $(dragItem).attr('data-id');
     var songTitle = $(dragItem).prop('outerHTML');
-console.log(event);
+console.log(songTitle);
     //check for IE (it supports only 'text' or 'URL')
     try {
       event.dataTransfer.setData('text/uri-list', songId);
@@ -132,7 +132,7 @@ console.log(event);
       // dataHTML.addEventListener('dragstart', dragStart);
       // dataHTML.addEventListener('drag', drag);
       $(drop).append(dataHTML);
-      $(dragItem).hide();
+      //$(dragItem).hide();
       //var drag = $(drop).find('.drag');
     }
     //only have access to text (old browsers + IE)

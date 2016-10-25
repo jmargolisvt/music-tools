@@ -14,9 +14,9 @@
     padding: 2% 1%;
     border: 1px solid gray;
     border-radius: 10px;
+    display: block;
 
     &.edit {
-      width: 30%;
       .set-container & {
         width: 100%;
       }

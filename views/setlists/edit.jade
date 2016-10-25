@@ -10,25 +10,24 @@ block content
       #all_sets
         .set-container.drop#set_1
           h2 Set 1
+          ul.sortable
         .set-container.drop#set_2
           h2 Set 2
+          ul.sortable
         br(style='clear:both')
 
       #the_bench.drop
         //- We have a saved order to start with
         //- ondragend='document.getElementById("songArray").value = getOrder();'
-        if setlist.songArray
-          - each name, id in JSON.parse(setlist.songArray)
-            div.song.edit(data-id='#{id}' data-name='#{name}'  draggable='true' )
-              ul
-                li
+        ul.sortable
+          if setlist.songArray
+            - each name, id in JSON.parse(setlist.songArray)
+              li.song.edit(data-id='#{id}' data-name='#{name}')
+                b
+                  = name
+          else
+          //- We are starting from scratch with all available songs
+            - each song, i in songs
+                li.song.edit(data-id='#{song._id}' data-name='#{song.name}')
                   b
-                    = name
-        else
-        //- We are starting from scratch with all available songs
-          - each song, i in songs
-              div.song.edit(data-id='#{song._id}' data-name='#{song.name}' ondragend='document.getElementById("songArray").value = getOrder();' draggable='true')
-                ul
-                  li
-                    b
-                      = song.name
+                    = song.name

@@ -4,11 +4,10 @@
   padding: 2% 1%;
   border: 1px solid gray;
   border-radius: 10px;
+  display: block;
   /* make the button look like a link for now */ }
-  .song.edit {
-    width: 30%; }
-    .set-container .song.edit {
-      width: 100%; }
+  .set-container .song.edit {
+    width: 100%; }
   .song ul {
     display: flex;
     margin-bottom: 0; }
