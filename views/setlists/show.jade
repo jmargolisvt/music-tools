@@ -3,11 +3,19 @@ extends ../layout
 block content
   #setlist_view
     h1.bg-primary.text-center #{setlist.name}
-    ul
-      each k, v in JSON.parse(songArray)
-        div
-          ul
-            li
-              = k
+    -var ob = JSON.parse(songArray)
+    h4 Set 1
+    -each song in ob['set_1']
+     -each k, v in song
+      li= k
+    h4 Set 2
+    -each song in ob['set_2']
+     -each k, v in song
+      li= k
+    h4 Bench
+    -each song in ob['bench']
+     -each k, v in song
+      li= k
+
     p
         a(href='/setlists/#{setlist._id}/edit') Edit this Setlist

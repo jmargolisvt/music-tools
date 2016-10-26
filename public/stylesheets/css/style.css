@@ -7,7 +7,8 @@
   display: block;
   /* make the button look like a link for now */ }
   .set-container .song.edit {
-    width: 100%; }
+    width: 100%;
+    height: 50px; }
   .song ul {
     display: flex;
     margin-bottom: 0; }
