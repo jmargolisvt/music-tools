@@ -3,7 +3,8 @@ var express = require('express'),
     favicon = require('serve-favicon'),
     logger = require('morgan'),
     cookieParser = require('cookie-parser'),
-    bodyParser = require('body-parser');
+    bodyParser = require('body-parser'),
+    mongoose = require('mongoose');
 
 var db = require('./model/db'),
     song = require('./model/songs'),
@@ -65,5 +66,14 @@ app.use(function(err, req, res, next) {
     });
 });
 
+// this is to set up a test db for mocha and chai to use
+var config = require('./server/_config');
 
+mongoose.createConnection(config.mongoURI[app.settings.env], function(err, res) {
+  if(err) {
+    console.log('Error connecting to the database. ' + err);
+  } else {
+    console.log('Connected to Database: ' + config.mongoURI[app.settings.env]);
+  }
+});
 module.exports = app;

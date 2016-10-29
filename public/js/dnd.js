@@ -1,4 +1,6 @@
 $(document).ready(function() {
+  getOrder();
+
   $( '.song.edit' ).draggable({
     connectToSortable: '.sortable',
     revert: 'invalid'
