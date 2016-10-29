@@ -1,6 +1,8 @@
 extends ../layout
 
 block content
+    if songArray
+      - var ob = JSON.parse(songArray)
     h3.bg-primary.text-center #{title}
     .container-fluid
       form(action='/setlists/#{setlist._id}/edit',method='post',enctype='application/x-www-form-urlencoded')
@@ -11,23 +13,29 @@ block content
         .set-container.drop#set_1
           h2 Set 1
           ul.sortable
+            if ob
+              -each song in ob['set_1']
+               -each k, v in song
+                  li.song.edit(data-id='#{v}' data-name='#{k}')= k
         .set-container.drop#set_2
           h2 Set 2
           ul.sortable
+            if ob
+              -each song in ob['set_2']
+               -each k, v in song
+                  li.song.edit(data-id='#{v}' data-name='#{k}')= k
         br(style='clear:both')
 
       #the_bench.drop
-        //- We have a saved order to start with
-        //- ondragend='document.getElementById("songArray").value = getOrder();'
+        //- If we have a saved order, use that.  Otherwise, load all songs
+        //- to start a new setlist
         ul.sortable
-          if setlist.songArray
-            - each name, id in JSON.parse(setlist.songArray)
-              li.song.edit(data-id='#{id}' data-name='#{name}')
-                b
-                  = name
+          if ob
+            -each song in ob['bench']
+             -each k, v in song
+                li.song.edit(data-id='#{v}' data-name='#{k}')= k
           else
-          //- We are starting from scratch with all available songs
             - each song, i in songs
-                li.song.edit(data-id='#{song._id}' data-name='#{song.name}')
-                  b
-                    = song.name
+              li.song.edit(data-id='#{song._id}' data-name='#{song.name}')
+                b
+                  = song.name

@@ -157,6 +157,7 @@ router.route('/:id/edit')
   	                       res.render('setlists/edit', {
   	                          title: setlist.name,
   	                          setlist : setlist,
+                              songArray: setlist.songArray,
                               songs : songs
   	                      });
 	                 },
