@@ -31,7 +31,7 @@ router.route('/')
                       //HTML response will render the index.jade file in the views/songs folder. We are also setting "songs" to be an accessible variable in our jade view
                     html: function(){
                         res.render('songs/index', {
-                              title: 'All my Songs',
+                              title: 'Songs',
                               "songs" : songs
                           });
                     },

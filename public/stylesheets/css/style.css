@@ -83,12 +83,14 @@ nav li {
   color: #fff; }
 
 /*--- SET LIST VIEW ---*/
-#setlist_view {
-  background: #fff; }
+.content {
+  background: #fff;
+  padding: 2%; }
 
 /*--- GENERAL---*/
 body {
-  background-color: #000; }
+  background-color: #000;
+  padding: 5%; }
 
 h1, h3 {
   padding: 2% 1%;
@@ -103,9 +105,9 @@ input {
 .container-fluid {
   margin: 3% 0; }
 
-button[type='submit'] {
-  width: 100%;
-  padding: 2%;
+button[type='submit'].btn {
+  width: 20%;
+  padding: 1%;
   margin-bottom: 1%;
-  background: chartreuse;
+  background: darkviolet;
   font-weight: bold; }

@@ -111,13 +111,15 @@ nav {
 }
 
 /*--- SET LIST VIEW ---*/
-#setlist_view {
+.content {
   background: #fff;
+  padding: 2%;
 }
 
 /*--- GENERAL---*/
 body {
   background-color: #000;
+  padding: 5%;
 }
 
 h1, h3 {
@@ -135,10 +137,10 @@ input {
   margin: 3% 0;
 }
 
-button[type='submit'] {
-  width: 100%;
-  padding: 2%;
-  margin-bottom: 1%;
-  background: chartreuse;
-  font-weight: bold;
+button[type='submit'].btn {
+    width: 20%;
+    padding: 1%;
+    margin-bottom: 1%;
+    background: darkviolet;
+    font-weight: bold;
 }

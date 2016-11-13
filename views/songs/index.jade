@@ -1,28 +1,28 @@
 extends ../layout
 
 block content
-    h3.bg-primary.text-center Add a New Song
-    form#formAddSong(name="addsong",method="post",action="/songs")
-      label.control-label Name:
-        input#inputName(type="text", placeholder="Free Bird", name="name")
-      label.control-label Artist:
-        input#inputArtist(type="text", placeholder="Lynard Skynard", name="artist")
-      button#btnSubmit.btn.btn-primary(type="submit") Add Song
-    h3.bg-primary.text-center #{title}
-    - each song, i in songs
-        div.song(draggable='true' ondragenter='dragenter(event)' ondragstart='dragstart(event)')
-          ul
-            li.name
-              b
-                = song.name
-            li.artist by&nbsp;
-              = song.artist
-            li.action
-              form(action='/songs/#{song._id}/edit',method='post',enctype='application/x-www-form-urlencoded')
-                  input(type='hidden',value='DELETE',name='_method')
-                  button(type='submit').
-                      Delete
-            li.action
-                a(href='/songs/#{song._id}/edit') Edit
-            li.action
-                a(href='/songs/#{song._id}') Show
+    .content
+      form#formAddSong(name="addsong",method="post",action="/songs")
+        label.control-label Name:
+          input#inputName(type="text", placeholder="Free Bird", name="name")
+        label.control-label Artist:
+          input#inputArtist(type="text", placeholder="Lynard Skynard", name="artist")
+        button#btnSubmit.btn.btn-primary(type="submit") Add Song
+      h3.bg-primary.text-center #{title}
+      - each song, i in songs
+          div.song(draggable='true' ondragenter='dragenter(event)' ondragstart='dragstart(event)')
+            ul
+              li.name
+                b
+                  = song.name
+              li.artist by&nbsp;
+                = song.artist
+              li.action
+                form(action='/songs/#{song._id}/edit',method='post',enctype='application/x-www-form-urlencoded')
+                    input(type='hidden',value='DELETE',name='_method')
+                    button(type='submit').
+                        Delete
+              li.action
+                  a(href='/songs/#{song._id}/edit') Edit
+              li.action
+                  a(href='/songs/#{song._id}') Show

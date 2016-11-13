@@ -31,7 +31,7 @@ router.route('/')
                       //HTML response will render the index.jade file in the views/setlists folder. We are also setting "setlists" to be an accessible variable in our jade view
                     html: function(){
                         res.render('setlists/index', {
-                              title: 'All my Setlists',
+                              title: 'Setlists',
                               "setlists" : setlists
                           });
                     },

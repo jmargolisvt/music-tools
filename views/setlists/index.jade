@@ -1,19 +1,24 @@
 extends ../layout
 
 block content
-  h3.bg-primary.text-center #{title}
-  - each setlist, i in setlists
-      div.setlist(draggable='true' ondragenter='dragenter(event)' ondragstart='dragstart(event)')
-        ul
-          li
-            b
-              = setlist.name
-          li.pull-right
-              a(href='/setlists/#{setlist._id}/edit') Edit
-          li.pull-right
-              a(href='/setlists/#{setlist._id}') Show
-          li.pull-right
-            form(action='/setlists/#{setlist._id}/edit',method='post',enctype='application/x-www-form-urlencoded')
-                input(type='hidden',value='DELETE',name='_method')
-                button(type='submit').
-                    Delete
+  .content
+    form#formAddSong(name="addsong",method="post",action="/setlists")
+      label.control-label Name:
+        input#inputName(type="text", placeholder="CBGB's", name="name")
+      button#btnSubmit.btn.btn-primary(type="submit") Add Setlist
+    h3.bg-primary.text-center #{title}
+    - each setlist, i in setlists
+        div.setlist(draggable='true' ondragenter='dragenter(event)' ondragstart='dragstart(event)')
+          ul
+            li
+              b
+                = setlist.name
+            li.pull-right
+                a(href='/setlists/#{setlist._id}/edit') Edit
+            li.pull-right
+                a(href='/setlists/#{setlist._id}') Show
+            li.pull-right
+              form(action='/setlists/#{setlist._id}/edit',method='post',enctype='application/x-www-form-urlencoded')
+                  input(type='hidden',value='DELETE',name='_method')
+                  button(type='submit').
+                      Delete
