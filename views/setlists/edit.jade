@@ -12,6 +12,9 @@ block content
       #all_sets
         .set-container.drop#set_1
           h2 Set 1
+          #count_1
+            if ob
+              = ob['set_1'].length
           ul.sortable
             if ob
               -each song in ob['set_1']
@@ -19,6 +22,9 @@ block content
                   li.song.edit(data-id='#{v}' data-name='#{k}')= k
         .set-container.drop#set_2
           h2 Set 2
+          #count_2
+            if ob
+              = ob['set_1'].length
           ul.sortable
             if ob
               -each song in ob['set_2']
@@ -26,7 +32,7 @@ block content
                   li.song.edit(data-id='#{v}' data-name='#{k}')= k
         br(style='clear:both')
 
-      #the_bench.drop
+      #the_bench.drop.bg-primary
         //- If we have a saved order, use that.  Otherwise, load all songs
         //- to start a new setlist
         ul.sortable

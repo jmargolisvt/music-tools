@@ -2,6 +2,7 @@
 function getOrder() {
   var x = document.getElementsByClassName('song');
   var arr = new Object;
+
   for (i=0; i< x.length; i++) {
     arr[x[i].getAttribute('data-id')] = x[i].getAttribute('data-name');
   }
@@ -18,7 +19,6 @@ jQuery(document).ready(function($) {
 
     drag_items.each(function() {
       var thisDrag = $(this);
-console.log(thisDrag[0]);
       thisDrag[0].addEventListener('dragstart', dragStart);
       thisDrag[0].addEventListener('drag', drag);
     //  thisDrag[0].addEventListener('dragend', dragEnd);
@@ -50,14 +50,13 @@ console.log(thisDrag[0]);
 
     var songId = $(dragItem).attr('data-id');
     var songTitle = $(dragItem).prop('outerHTML');
-console.log(songTitle);
     //check for IE (it supports only 'text' or 'URL')
-    try {
-      event.dataTransfer.setData('text/uri-list', songId);
-      event.dataTransfer.setData('text/html', songTitle);
-    } catch (e) {
-      event.dataTransfer.setData('text', songId);
-    }
+    // try {
+    //   event.dataTransfer.setData('text/uri-list', songId);
+    //   event.dataTransfer.setData('text/html', songTitle);
+    // } catch (e) {
+    //   event.dataTransfer.setData('text', songId);
+    // }
 
     $(drag).addClass('drag-active');
 

@@ -1,14 +1,15 @@
 /*--- SONG BLOCKS ---*/
 .song {
-  background: aliceblue;
-  padding: 2% 1%;
   border: 1px solid gray;
-  border-radius: 10px;
   display: block;
+  overflow: hidden;
   /* make the button look like a link for now */ }
-  .set-container .song.edit {
-    width: 100%;
-    height: 50px; }
+  .song.edit {
+    line-height: 3em; }
+    .set-container .song.edit {
+      width: 100%;
+      height: 50px;
+      background: url(/images/drag.png) no-repeat 5% 50% aliceblue; }
   .song ul {
     display: flex;
     margin-bottom: 0; }
@@ -40,9 +41,7 @@
   display: flex; }
 
 #the_bench {
-  padding: 3%;
-  background-color: cornflowerblue;
-  min-height: 300px; }
+  padding: 3%; }
 
 .set-container {
   flex: 1;
@@ -89,12 +88,12 @@ nav li {
 
 /*--- GENERAL---*/
 body {
-  background-color: #000;
+  background-color: gray;
   padding: 5%; }
 
 h1, h3 {
   padding: 2% 1%;
-  text-shadow: 2px 2px 10px #000; }
+  background-color: aliceblue; }
 
 li {
   list-style-type: none; }
