@@ -109,11 +109,10 @@
 
 nav {
   li {
-    font-size: 1.2em;
-    display: inline;
-    &:after {
-        content: ' | ';
-    }
+      font-size: 1.5em;
+      padding: 2%;
+      display: inline-block;
+
     a {
       color: #fff;
     }
@@ -154,4 +153,23 @@ li {list-style-type: none;}
 
 input {
   margin-right: 5%;
+}
+
+/*--- PRINT ---*/
+@media print {
+   nav, button {
+     display: none;
+   }
+
+   .song {
+     border: none;
+     padding: 0;
+
+     &.edit {
+       line-height: 1.3em;
+       .set-container & {
+         height: inherit;
+       }
+     }
+   }
 }
