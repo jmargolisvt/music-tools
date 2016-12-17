@@ -1,11 +1,7 @@
-@mixin no-button {
-  background: none;
-  border: none;
-  color: red;
-
-  &:hover {
-    text-decoration: underline;
-  }
+* {
+  padding: 0;
+  margin: 0;
+  font-family: sans-serif;
 }
 
 /*--- SONG BLOCKS ---*/
@@ -17,7 +13,6 @@
     &.edit {
       line-height: 3em;
       .set-container & {
-        width: 100%;
         height: 50px;
         background: url(/images/drag.png) no-repeat 5% 50% aliceblue;
       }
@@ -41,11 +36,6 @@
         &.artist {flex: 4;}
         &.action {flex: 1;}
     }
-
-    /* make the button look like a link for now */
-    button {
-      @include no-button;
-    }
 }
 
 /*--- DRAG AND DROP ---*/
@@ -54,35 +44,64 @@
 }
 
 /*--- EDIT SET STYLES ---*/
-#all_sets {
-  display: flex;
-}
-
-#the_bench {
-  padding: 3%;
-}
-
-.set-container {
-  flex: 1;
-  min-height: 300px;
-  border: 1px solid #000;
-  background-color: bisque;
-  text-align: center;
-}
-
-/*--- SETLIST ---*/
-.setlist {
-  ul {
-    border-bottom: 1px dotted gray;
-    padding: 2% 0;
-  }
-  li {
-    display: inline-flex;
-    padding: 0 3%;
-  }
-  /* make the button look like a link for now */
+#edit_view {
   button {
-    @include no-button;
+    padding: 2%;
+    font-size: 1em;
+    font-weight: bold;
+    width: 100%;
+    margin: 1% 0;
+  }
+
+  .count {
+    position: absolute;
+    top: 2%;
+    right: 2%;
+    font-size: 1em;
+    background: yellowgreen;
+    padding: 2%;
+    border: 1px solid gray;
+  }
+
+  #all_sets {
+    display: flex;
+
+    #set_1, #set_2 {
+      position: relative;
+      padding: 1%;
+    }
+  }
+
+  #the_bench {
+    padding: 3%;
+    background: lightblue;
+
+    .song {
+      display: inline-block;;
+      margin: 0 2px;
+      padding: 0 1%;
+      background-color: aliceblue;
+    }
+  }
+
+  .set-container {
+    flex: 1;
+    min-height: 300px;
+    border: 1px solid #000;
+    background-color: beige;
+    text-align: center;
+  }
+
+  /*--- SETLIST ---*/
+  .setlist {
+    ul {
+      border-bottom: 1px dotted gray;
+      padding: 2% 0;
+    }
+    li {
+      display: inline-flex;
+      padding: 0 3%;
+    }
   }
 }
 
@@ -115,29 +134,24 @@ nav {
 
 /*--- GENERAL---*/
 body {
-  background-color: gray;
+  background-color: gray ;
   padding: 5%;
 }
 
 h1, h3 {
   padding: 2% 1%;
-  background-color: aliceblue;
+  text-align: center;
+  background-color: yellowgreen;
+  text-shadow: 2px 2px 5px #888;
+  color: #fff;
+}
+
+h2 {
+  line-height: 2em;
 }
 
 li {list-style-type: none;}
 
 input {
   margin-right: 5%;
-}
-
-.container-fluid {
-  margin: 3% 0;
-}
-
-button[type='submit'].btn {
-    width: 20%;
-    padding: 1%;
-    margin-bottom: 1%;
-    background: darkviolet;
-    font-weight: bold;
 }

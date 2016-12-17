@@ -3,12 +3,12 @@ extends ../layout
 block content
     .content
       form#formAddSong(name="addsong",method="post",action="/songs")
-        label.control-label Name:
+        label Name:
           input#inputName(type="text", placeholder="Free Bird", name="name")
-        label.control-label Artist:
+        label Artist:
           input#inputArtist(type="text", placeholder="Lynard Skynard", name="artist")
         button#btnSubmit.btn.btn-primary(type="submit") Add Song
-      h3.bg-primary.text-center #{title}
+      h3 #{title}
       - each song, i in songs
           div.song(draggable='true' ondragenter='dragenter(event)' ondragstart='dragstart(event)')
             ul

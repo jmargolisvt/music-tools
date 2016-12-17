@@ -1,13 +1,16 @@
+* {
+  padding: 0;
+  margin: 0;
+  font-family: sans-serif; }
+
 /*--- SONG BLOCKS ---*/
 .song {
   border: 1px solid gray;
   display: block;
-  overflow: hidden;
-  /* make the button look like a link for now */ }
+  overflow: hidden; }
   .song.edit {
     line-height: 3em; }
     .set-container .song.edit {
-      width: 100%;
       height: 50px;
       background: url(/images/drag.png) no-repeat 5% 50% aliceblue; }
   .song ul {
@@ -25,46 +28,53 @@
       flex: 4; }
     .song li.action {
       flex: 1; }
-  .song button {
-    background: none;
-    border: none;
-    color: red; }
-    .song button:hover {
-      text-decoration: underline; }
 
 /*--- DRAG AND DROP ---*/
 [draggable] {
   user-select: none; }
 
 /*--- EDIT SET STYLES ---*/
-#all_sets {
-  display: flex; }
-
-#the_bench {
-  padding: 3%; }
-
-.set-container {
-  flex: 1;
-  min-height: 300px;
-  border: 1px solid #000;
-  background-color: bisque;
-  text-align: center; }
-
-/*--- SETLIST ---*/
-.setlist {
-  /* make the button look like a link for now */ }
-  .setlist ul {
+#edit_view {
+  /*--- SETLIST ---*/ }
+  #edit_view button {
+    padding: 2%;
+    font-size: 1em;
+    font-weight: bold;
+    width: 100%;
+    margin: 1% 0; }
+  #edit_view .count {
+    position: absolute;
+    top: 2%;
+    right: 2%;
+    font-size: 1em;
+    background: yellowgreen;
+    padding: 2%;
+    border: 1px solid gray; }
+  #edit_view #all_sets {
+    display: flex; }
+    #edit_view #all_sets #set_1, #edit_view #all_sets #set_2 {
+      position: relative;
+      padding: 1%; }
+  #edit_view #the_bench {
+    padding: 3%;
+    background: lightblue; }
+    #edit_view #the_bench .song {
+      display: inline-block;
+      margin: 0 2px;
+      padding: 0 1%;
+      background-color: aliceblue; }
+  #edit_view .set-container {
+    flex: 1;
+    min-height: 300px;
+    border: 1px solid #000;
+    background-color: beige;
+    text-align: center; }
+  #edit_view .setlist ul {
     border-bottom: 1px dotted gray;
     padding: 2% 0; }
-  .setlist li {
+  #edit_view .setlist li {
     display: inline-flex;
     padding: 0 3%; }
-  .setlist button {
-    background: none;
-    border: none;
-    color: red; }
-    .setlist button:hover {
-      text-decoration: underline; }
 
 /*--- NAV---*/
 nav li {
@@ -93,20 +103,16 @@ body {
 
 h1, h3 {
   padding: 2% 1%;
-  background-color: aliceblue; }
+  text-align: center;
+  background-color: yellowgreen;
+  text-shadow: 2px 2px 5px #888;
+  color: #fff; }
+
+h2 {
+  line-height: 2em; }
 
 li {
   list-style-type: none; }
 
 input {
   margin-right: 5%; }
-
-.container-fluid {
-  margin: 3% 0; }
-
-button[type='submit'].btn {
-  width: 20%;
-  padding: 1%;
-  margin-bottom: 1%;
-  background: darkviolet;
-  font-weight: bold; }

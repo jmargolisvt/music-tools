@@ -1,47 +1,47 @@
 extends ../layout
 
 block content
+  #edit_view
     if songArray
       - var ob = JSON.parse(songArray)
-    h3.bg-primary.text-center #{title}
-    .container-fluid
-      form(action='/setlists/#{setlist._id}/edit',method='post',enctype='application/x-www-form-urlencoded')
-          input(type='hidden',value='',name='songArray',id='songArray')
-          input(type='hidden',value='PUT',name='_method')
-          button(type='submit') Save Set List
-      #all_sets
-        .set-container.drop#set_1
-          h2 Set 1
-          #count_1
-            if ob
-              = ob['set_1'].length
-          ul.sortable
-            if ob
-              -each song in ob['set_1']
-               -each k, v in song
-                  li.song.edit(data-id='#{v}' data-name='#{k}')= k
-        .set-container.drop#set_2
-          h2 Set 2
-          #count_2
-            if ob
-              = ob['set_1'].length
-          ul.sortable
-            if ob
-              -each song in ob['set_2']
-               -each k, v in song
-                  li.song.edit(data-id='#{v}' data-name='#{k}')= k
-        br(style='clear:both')
-
-      #the_bench.drop.bg-primary
-        //- If we have a saved order, use that.  Otherwise, load all songs
-        //- to start a new setlist
+    h3 #{title}
+    form(action='/setlists/#{setlist._id}/edit',method='post',enctype='application/x-www-form-urlencoded')
+        input(type='hidden',value='',name='songArray',id='songArray')
+        input(type='hidden',value='PUT',name='_method')
+        button(type='submit') Save Set List
+    #all_sets
+      .set-container.drop#set_1
+        h2 Set 1
+        .count#count_1
+          if ob
+            = ob['set_1'].length
         ul.sortable
           if ob
-            -each song in ob['bench']
+            -each song in ob['set_1']
              -each k, v in song
                 li.song.edit(data-id='#{v}' data-name='#{k}')= k
-          else
-            - each song, i in songs
-              li.song.edit(data-id='#{song._id}' data-name='#{song.name}')
-                b
-                  = song.name
+      .set-container.drop#set_2
+        h2 Set 2
+        .count#count_2
+          if ob
+            = ob['set_1'].length
+        ul.sortable
+          if ob
+            -each song in ob['set_2']
+             -each k, v in song
+                li.song.edit(data-id='#{v}' data-name='#{k}')= k
+      br(style='clear:both')
+
+    #the_bench.drop
+      //- If we have a saved order, use that.  Otherwise, load all songs
+      //- to start a new setlist
+      ul.sortable
+        if ob
+          -each song in ob['bench']
+           -each k, v in song
+              li.song.edit(data-id='#{v}' data-name='#{k}')= k
+        else
+          - each song, i in songs
+            li.song.edit(data-id='#{song._id}' data-name='#{song.name}')
+              b
+                = song.name
