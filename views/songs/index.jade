@@ -7,7 +7,7 @@ block content
           input#inputName(type="text", placeholder="Free Bird", name="name")
         label Artist:
           input#inputArtist(type="text", placeholder="Lynard Skynard", name="artist")
-        button#btnSubmit.btn.btn-primary(type="submit") Add Song
+        button#btnSubmit(type="submit") Add Song
       h3 #{title}
       - each song, i in songs
           div.song(draggable='true' ondragenter='dragenter(event)' ondragstart='dragstart(event)')

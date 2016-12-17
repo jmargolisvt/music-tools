@@ -25,10 +25,11 @@ $(document).ready(function() {
 });
 
 // get all the song id's and put them in an object
+// exclude JQuery UI's placeholder li's
 function getOrder() {
-  var bench = document.querySelectorAll('#the_bench .song');
-  var set1 = document.querySelectorAll('#set_1 .song');
-  var set2 = document.querySelectorAll('#set_2 .song');
+  var bench = document.querySelectorAll('#the_bench .song:not(.ui-sortable-placeholder)');
+  var set1 = document.querySelectorAll('#set_1 .song:not(.ui-sortable-placeholder)');
+  var set2 = document.querySelectorAll('#set_2 .song:not(.ui-sortable-placeholder)');
   var list = new Object;
 
   buildList('bench', bench, list);
