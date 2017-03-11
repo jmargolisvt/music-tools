@@ -1,26 +1,28 @@
 $(document).ready(function() {
-  getOrder();
-  $( '.song.edit' ).draggable({
-    connectToSortable: '.sortable',
-    revert: 'invalid'
-  });
+  if ($('#edit_view').length) {
+    getOrder();
+    $( '.song.edit' ).draggable({
+      connectToSortable: '.sortable',
+      revert: 'invalid'
+    });
 
-  $( '.sortable' ).sortable({});
+    $( '.sortable' ).sortable({});
 
-  $( '.sortable' ).disableSelection();
+    $( '.sortable' ).disableSelection();
 
-  $( '.drop' ).droppable({
-    drop: function (event, ui) {
-        $(this).find('.sortable')
-            .append(ui.helper.css({
-              // because JQuery UI adds inline styles
-              position: 'relative',
-              left: '0px',
-              top: '0px'
-        }));
-        getOrder();
-    }
-  });
+    $( '.drop' ).droppable({
+      drop: function (event, ui) {
+          $(this).find('.sortable')
+              .append(ui.helper.css({
+                // because JQuery UI adds inline styles
+                position: 'relative',
+                left: '0px',
+                top: '0px'
+          }));
+          getOrder();
+      }
+    });
+  }
 });
 
 // get all the song id's and put them in an object
