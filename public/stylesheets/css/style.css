@@ -30,8 +30,13 @@
       flex: 1; }
 
 /*--- EDIT SONG STYLES ---*/
-textarea {
-  float: left; }
+span.chord {
+  font-weight: bold; }
+
+div.lyrics {
+  background: #fff;
+  padding: 3%;
+  border: 1px solid #000; }
 
 /*--- DRAG AND DROP ---*/
 [draggable] {
@@ -98,11 +103,17 @@ nav li {
 .content {
   background: #fff;
   padding: 2%; }
+  .content #view_setlist {
+    display: flex;
+    text-align: center;
+    margin: 3% 0; }
+    .content #view_setlist ul {
+      flex: 1; }
 
 /*--- GENERAL---*/
 body {
   background-color: gray;
-  padding: 5%; }
+  padding: 0 5%; }
 
 h1, h3 {
   padding: 2% 1%;
@@ -119,6 +130,9 @@ li {
 
 input {
   margin-right: 5%; }
+
+.left {
+  float: left; }
 
 /*--- PRINT ---*/
 @media print {

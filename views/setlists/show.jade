@@ -5,22 +5,25 @@ block content
     -var ob = JSON.parse(songArray)
   .content
     h1.bg-primary.text-center #{setlist.name}
-    h4 Set 1
-    ul
-    if ob
-      -each song in ob['set_1']
-       -each k, v in song
-        li= k
-    h4 Set 2
-    if ob
-      -each song in ob['set_2']
-       -each k, v in song
-        li= k
-    h4 Bench
-    if ob
-      -each song in ob['bench']
-       -each k, v in song
-        li= k
+    #view_setlist
+      ul
+        h4 Set 1
+        if ob
+          -each song in ob['set_1']
+           -each k, v in song
+            li= k
+      ul
+        h4 Set 2
+        if ob
+          -each song in ob['set_2']
+           -each k, v in song
+            li= k
+      ul
+        h4 Bench
+        if ob
+          -each song in ob['bench']
+           -each k, v in song
+            li= k
 
     p
         a(href='/setlists/#{setlist._id}/edit') Edit this Setlist

@@ -40,7 +40,12 @@
 
 /*--- EDIT SONG STYLES ---*/
 
-textarea {float: left;}
+span.chord {font-weight: bold;}
+div.lyrics {
+  background: #fff;
+  padding: 3%;
+  border: 1px solid #000;
+}
 
 /*--- DRAG AND DROP ---*/
 [draggable] {
@@ -133,12 +138,20 @@ nav {
 .content {
   background: #fff;
   padding: 2%;
+  #view_setlist {
+    display: flex;
+    text-align: center;
+    margin: 3% 0;
+    ul {
+      flex: 1;
+    }
+  }
 }
 
 /*--- GENERAL---*/
 body {
   background-color: gray ;
-  padding: 5%;
+  padding: 0 5%;
 }
 
 h1, h3 {
@@ -158,6 +171,8 @@ li {list-style-type: none;}
 input {
   margin-right: 5%;
 }
+
+.left {float: left;}
 
 /*--- PRINT ---*/
 @media print {
