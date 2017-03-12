@@ -46,20 +46,22 @@ router.route('/')
     //POST a new setlist
     .post(function(req, res) {
         // Get values from POST request. These can be done through forms or REST calls. These rely on the "name" attributes for forms
-        var list = req.body.array;
-        var name = req.body.name;
+        let list = req.body.array,
+            name = req.body.name,
+            numSets = req.body.numSets;
         console.log(req);
         //call the create function for our database
         mongoose.model('Setlist').create({
             setlistArray: { $push: { song: list } },
-            name: name
+            name: name,
+            numSets: numSets
         }, function (err, setlist) {
               if (err) {
                   console.log('ERROR: ' + err);
                   res.send("There was a problem adding the information to the database." + err);
               } else {
                   //Setlist has been created
-                  console.log("req: " + req);
+                  //console.log("req: " + req);
                   console.log('POST creating new setlist: ' + setlist);
                   res.format({
                       //HTML response will set the location and redirect back to the home page. You could also create a 'success' page if that's your thing
@@ -159,7 +161,8 @@ router.route('/:id/edit')
   	                          title: setlist.name,
   	                          setlist : setlist,
                               songArray: setlist.songArray,
-                              songs : songs
+                              songs : songs,
+                              numSets : setlist.numSets
   	                      });
 	                 },
 	                 //JSON response will return the JSON output

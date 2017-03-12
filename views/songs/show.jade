@@ -6,6 +6,9 @@ block content
     p Artist: #{song.artist}
 
     p
+      input(type='button', value='Back', onclick='history.back(-1)')
+
+    p
         a(href='/songs/#{song._id}/edit') Edit
     p
         a(href='/songs') All Songs

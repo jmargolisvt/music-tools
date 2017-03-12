@@ -4,20 +4,26 @@ block content
   .content
     form#formAddSong(name="addsong",method="post",action="/setlists")
       label.control-label Name:
-        input#inputName(type="text", placeholder="CBGB's", name="name")
+        input(type="text", placeholder="CBGB's", name="name")
+        select(name='numSets')
+          option(value='1') 1 Set
+          option(value='2', selected='') 2 Sets
+          option(value='3') 3 Sets
       button#btnSubmit.btn.btn-primary(type="submit") Add Setlist
     h3.bg-primary.text-center #{title}
     - each setlist, i in setlists
-        div.setlist(draggable='true' ondragenter='dragenter(event)' ondragstart='dragstart(event)')
+        div.setlist
           ul
             li
               b
                 = setlist.name
-            li.pull-right
+            li
+                = setlist.numSets
+            li
                 a(href='/setlists/#{setlist._id}/edit') Edit
-            li.pull-right
+            li
                 a(href='/setlists/#{setlist._id}') Show
-            li.pull-right
+            li
               form(action='/setlists/#{setlist._id}/edit',method='post',enctype='application/x-www-form-urlencoded')
                   input(type='hidden',value='DELETE',name='_method')
                   button(type='submit').
