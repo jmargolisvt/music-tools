@@ -2,7 +2,7 @@ extends ../layout
 
 block content
   if songArray
-    -var ob = JSON.parse(songArray)
+    - var ob = JSON.parse(songArray)
   .content
     h1.bg-primary.text-center #{setlist.name}
     #view_setlist
@@ -11,19 +11,25 @@ block content
         if ob
           -each song in ob['set_1']
            -each k, v in song
-            li= k
+            li
+              a(href='/songs/#{v}')
+                = k
       ul
         h4 Set 2
         if ob
           -each song in ob['set_2']
            -each k, v in song
-            li= k
+            li
+              a(href='/songs/#{v}')
+                = k
       ul
         h4 Bench
         if ob
           -each song in ob['bench']
            -each k, v in song
-            li= k
+            li
+              a(href='/songs/#{v}')
+                = k
 
     p
         a(href='/setlists/#{setlist._id}/edit') Edit this Setlist

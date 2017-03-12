@@ -61,7 +61,7 @@ router.route('/')
                   res.format({
                       //HTML response will set the location and redirect back to the home page. You could also create a 'success' page if that's your thing
                     html: function(){
-                        // If it worked, set the header so the address bar doesn't still say /adduser
+                        // If it worked, set the header so the address bar doesn't still say /addsong
                         res.location("songs");
                         // And forward to success page
                         res.redirect("/songs");

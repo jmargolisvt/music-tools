@@ -121,6 +121,7 @@ router.route('/:id')
         console.log('GET Error: There was a problem retrieving: ' + err);
       } else {
         console.log('GET Retrieving ID: ' + setlist._id);
+        console.log(songArray);
         res.format({
           html: function(){
               res.render('setlists/show', {
