@@ -24,24 +24,22 @@ $(document).ready(function() {
     });
   }
 });
+var list = new Object;
 
 // get all the song id's and put them in an object
 // exclude JQuery UI's placeholder li's
 function getOrder() {
-  var bench = document.querySelectorAll('#the_bench .song:not(.ui-sortable-placeholder)');
-  var set1 = document.querySelectorAll('#set_1 .song:not(.ui-sortable-placeholder)');
-  var set2 = document.querySelectorAll('#set_2 .song:not(.ui-sortable-placeholder)');
-  var list = new Object;
+  let sections = ['bench', 'set_1', 'set_2', 'set_3'];
+  for (var i = 0; i < sections.length; i++) {
+    buildList(sections[i], document.querySelectorAll('#'+ sections[i] + ' .song:not(.ui-sortable-placeholder)'));
+  }
 
-  buildList('bench', bench, list);
-  buildList('set_1', set1, list);
-  buildList('set_2', set2, list);
   document.getElementById("songArray").value = JSON.stringify(list);
 
-  updateCount(set1, set2);
+  //updateCount(set1, set2);
 }
 
-function buildList(cat, songs, list) {
+function buildList(cat, songs) {
   list[cat] = new Array;
   for (i=0; i< songs.length; i++) {
     list[cat].push({[songs[i].getAttribute('data-id')]: songs[i].getAttribute('data-name')});

@@ -64,10 +64,10 @@ div.lyrics {
     #edit_view #all_sets #set_1, #edit_view #all_sets #set_2 {
       position: relative;
       padding: 1%; }
-  #edit_view #the_bench {
+  #edit_view #bench {
     padding: 3%;
     background: lightblue; }
-    #edit_view #the_bench .song {
+    #edit_view #bench .song {
       display: inline-block;
       margin: 0 2px;
       padding: 0 1%;
