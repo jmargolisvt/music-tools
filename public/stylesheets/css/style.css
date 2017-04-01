@@ -23,7 +23,8 @@
     display: inline-flex;
     padding: 0 3%; }
     .song li.name {
-      flex: 6; }
+      flex: 6;
+      min-height: 40px; }
     .song li.artist {
       flex: 4; }
     .song li.action {
@@ -61,7 +62,7 @@ div.lyrics {
     border: 1px solid gray; }
   #edit_view #all_sets {
     display: flex; }
-    #edit_view #all_sets #set_1, #edit_view #all_sets #set_2 {
+    #edit_view #all_sets #set_1, #edit_view #all_sets #set_2, #edit_view #all_sets #set_3 {
       position: relative;
       padding: 1%; }
   #edit_view #bench {
@@ -85,7 +86,16 @@ div.lyrics {
     display: inline-flex;
     padding: 0 3%; }
 
-/*--- NAV---*/
+/*--- DATEPICKER ---*/
+div#ui-datepicker-div {
+  background: yellowgreen;
+  padding: 3%; }
+
+.ui-datepicker-calendar {
+  background: lemonchiffon;
+  padding: 1%; }
+
+/*--- NAV ---*/
 nav li {
   font-size: 1.5em;
   padding: 2%;

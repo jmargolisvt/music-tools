@@ -32,7 +32,7 @@
         display: inline-flex;
         padding: 0 3%;
 
-        &.name {flex: 6;}
+        &.name {flex: 6; min-height: 40px;}
         &.artist {flex: 4;}
         &.action {flex: 1;}
     }
@@ -75,7 +75,7 @@ div.lyrics {
   #all_sets {
     display: flex;
 
-    #set_1, #set_2 {
+    #set_1, #set_2, #set_3 {
       position: relative;
       padding: 1%;
     }
@@ -114,7 +114,18 @@ div.lyrics {
   }
 }
 
-/*--- NAV---*/
+
+/*--- DATEPICKER ---*/
+div#ui-datepicker-div {
+    background: yellowgreen;
+    padding: 3%;
+}
+.ui-datepicker-calendar {
+  background: lemonchiffon;
+  padding: 1%;
+}
+
+/*--- NAV ---*/
 
 nav {
   li {

@@ -4,7 +4,7 @@ block content
   if songArray
     - var ob = JSON.parse(songArray)
   .content
-    h1.bg-primary.text-center #{setlist.name}
+    h1.bg-primary.text-center #{setlist.name} - #{setlist.date.toLocaleDateString('en-US')}
     #view_setlist
       ul
         h4 Set 1

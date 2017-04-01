@@ -23,7 +23,11 @@ $(document).ready(function() {
       }
     });
   }
+
+  $('#date').datepicker({dateFormat: 'mm/dd/yy'});
+
 });
+
 var list = new Object;
 
 function getOrder() {
@@ -36,9 +40,7 @@ function getOrder() {
       elem.innerHTML = list[sections[i]].length;
     }
   }
-
   document.getElementById("songArray").value = JSON.stringify(list);
-
 }
 
 function buildList(cat, songs) {

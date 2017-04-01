@@ -5,6 +5,7 @@ block content
     form#formAddSong(name="addsong",method="post",action="/setlists")
       label.control-label Name:
         input(type="text", placeholder="CBGB's", name="name")
+        input(type='text', name='date', id='date')
         select(name='numSets')
           option(value='1') 1 Set
           option(value='2', selected='') 2 Sets
@@ -19,6 +20,8 @@ block content
                 = setlist.name
             li
                 = setlist.numSets
+            li
+                = setlist.date.toLocaleDateString('en-US')
             li
                 a(href='/setlists/#{setlist._id}/edit') Edit
             li

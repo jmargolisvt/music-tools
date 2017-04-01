@@ -46,15 +46,14 @@ router.route('/')
     //POST a new setlist
     .post(function(req, res) {
         // Get values from POST request. These can be done through forms or REST calls. These rely on the "name" attributes for forms
-        let list = req.body.array,
-            name = req.body.name,
-            numSets = req.body.numSets;
+        let {array, name, numSets, date} = req.body;
         console.log(req);
         //call the create function for our database
         mongoose.model('Setlist').create({
-            setlistArray: { $push: { song: list } },
+            setlistArray: { $push: { song: array } },
             name: name,
-            numSets: numSets
+            numSets: numSets,
+            date: date
         }, function (err, setlist) {
               if (err) {
                   console.log('ERROR: ' + err);
