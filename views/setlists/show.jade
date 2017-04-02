@@ -6,30 +6,21 @@ block content
   .content
     h1.bg-primary.text-center #{setlist.name} - #{setlist.date.toLocaleDateString('en-US')}
     #view_setlist
-      ul
-        h4 Set 1
-        if ob
-          -each song in ob['set_1']
-           -each k, v in song
-            li
-              a(href='/songs/#{v}')
-                = k
-      ul
-        h4 Set 2
-        if ob
-          -each song in ob['set_2']
-           -each k, v in song
-            li
-              a(href='/songs/#{v}')
-                = k
-      ul
-        h4 Bench
-        if ob
-          -each song in ob['bench']
-           -each k, v in song
-            li
-              a(href='/songs/#{v}')
-                = k
+      - for (var i=1; i<(numSets + 1); i++) {
+        .set-container(id="set_#{i}")
+          h2 Set #{i}
+          .count(id="count_#{i}")
+            if ob
+              = ob['set_' + i].length
+          ul
+            if ob
+              -each song in ob['set_' + i]
+               -each k, v in song
+                 li
+                   a(href='/songs/#{v}')
+                     = k
+      - }
+        br(style='clear:both')
 
     p
         a(href='/setlists/#{setlist._id}/edit') Edit this Setlist

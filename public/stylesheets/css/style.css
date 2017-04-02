@@ -117,7 +117,7 @@ nav li {
     display: flex;
     text-align: center;
     margin: 3% 0; }
-    .content #view_setlist ul {
+    .content #view_setlist .set-container {
       flex: 1; }
 
 /*--- GENERAL---*/
