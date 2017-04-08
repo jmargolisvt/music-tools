@@ -32,7 +32,7 @@ router.route('/')
                     html: function(){
                         res.render('setlists/index', {
                               title: 'Setlists',
-                              "setlists" : setlists
+                              setlists : setlists
                           });
                     },
                     //JSON response will show all setlists in JSON format

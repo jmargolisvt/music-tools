@@ -3,10 +3,13 @@ extends ../layout
 block content
     .content
       form#formAddSong(name="addsong",method="post",action="/songs")
-        label Name:
-          input#inputName(type="text", placeholder="Free Bird", name="name")
+        label Name*:
+          input#inputName(type="text", placeholder="Free Bird", name="name" required)
         label Artist:
           input#inputArtist(type="text", placeholder="Lynard Skynard", name="artist")
+        label Time:
+          input#time_minutes(type="number", placeholder="0", min="0", max="30", name="timeMinutes")
+          input#time_seconds(type="number", placeholder="00", min="0", max="59", name="timeSeconds")
         button#btnSubmit(type="submit") Add Song
       h3 #{title}
       - each song, i in songs
@@ -16,6 +19,8 @@ block content
                 b
                   a(href='/songs/#{song._id}')
                     = song.name
+              li.time
+                = song.time
               li.action
                 form(action='/songs/#{song._id}/edit',method='post',enctype='application/x-www-form-urlencoded')
                     input(type='hidden',value='DELETE',name='_method')

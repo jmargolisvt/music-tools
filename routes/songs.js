@@ -46,12 +46,13 @@ router.route('/')
     //POST a new song
     .post(function(req, res) {
         // Get values from POST request. These can be done through forms or REST calls. These rely on the "name" attributes for forms
-        var name = req.body.name;
-        var artist = req.body.artist;
+        const {name, artist, timeMinutes, timeSeconds}  = req.body;
+        let time = `${parseInt(timeMinutes, 10).toString()}:${timeSeconds}`
         //call the create function for our database
         mongoose.model('Song').create({
             name : name,
-            artist : artist
+            artist : artist,
+            time: time
         }, function (err, song) {
               if (err) {
                   res.send("There was a problem adding the information to the database." + err);
@@ -147,7 +148,7 @@ router.route('/:id/edit')
 	                html: function(){
 	                       res.render('songs/edit', {
 	                          title: 'Song' + song._id,
-	                          "song" : song
+	                          song : song
 	                      });
 	                 },
 	                 //JSON response will return the JSON output
@@ -161,8 +162,9 @@ router.route('/:id/edit')
 	//PUT to update a song by ID
 	.put(function(req, res) {
 	    // Get our REST or form values. These rely on the "name" attributes
-	    var name = req.body.name;
-	    var artist = req.body.artist;
+      const {name, artist, timeMinutes, timeSeconds}  = req.body;
+      console.log(req.body);
+      let time = `${parseInt(timeMinutes, 10).toString()}:${timeSeconds}`
 
 	    //find the document by ID
 	    mongoose.model('Song').findById(req.id, function (err, song) {
@@ -170,6 +172,7 @@ router.route('/:id/edit')
 	        song.update({
 	            name : name,
 	            artist : artist,
+              time: time
 	        }, function (err, songID) {
 	          if (err) {
 	              res.send("There was a problem updating the information to the database: " + err);

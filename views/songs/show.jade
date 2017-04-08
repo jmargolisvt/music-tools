@@ -1,9 +1,10 @@
 extends ../layout
 
 block content
-    h1.bg-primary.text-center #{song.name} -- Song Details
+    h1.bg-primary.text-center #{song.name}
     p Name: #{song.name}
     p Artist: #{song.artist}
+    p Time: #{song.time}
 
     p
       input(type='button', value='Back', onclick='history.back(-1)')

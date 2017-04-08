@@ -187,10 +187,15 @@ input {
 
 /*--- PRINT ---*/
 @media print {
+  * {
+    color: #000;
+  }
    nav, button {
      display: none;
    }
-
+   a {
+     text-decoration: none;
+   }
    .song {
      border: none;
      padding: 0;
