@@ -7,7 +7,8 @@
 .song {
   border: 1px solid gray;
   display: block;
-  overflow: hidden; }
+  overflow: hidden;
+  position: relative; }
   .song.edit {
     line-height: 3em; }
     .set-container .song.edit {

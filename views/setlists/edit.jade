@@ -12,15 +12,14 @@ block content
           .count(id="count_#{i}")
             if ob
               = ob['set_' + i].length
+          .total-time
           ul.sortable
             if ob
               -each song in ob['set_' + i]
                -each k, v in song
-                  li.song.edit(data-id='#{v}' data-name='#{k.name}' data-time='#{k.time}')
-                    = k.name
+                  li.song.edit(data-id='#{v}' data-name='#{k.name}' data-time='#{k.time}')= k.name
                     if k.time !== "undefined"
-                      span.time
-                        = k.time
+                      span.time= k.time
       - }
         br(style='clear:both')
 
@@ -32,11 +31,13 @@ block content
           -each song in ob['bench']
            -each k, v in song
               li.song.edit(data-id='#{v}' data-name='#{k.name}' data-time='#{k.time}')= k.name
+                if k.time !== "undefined"
+                  span.time= k.time
         else
           - each song, i in songs
-            li.song.edit(data-id='#{song._id}' data-name='#{song.name}' data-time='#{song.time}')
-              b
-                = song.name
+            li.song.edit(data-id='#{song._id}' data-name='#{song.name}' data-time='#{song.time}')= song.name
+              if song.time !== "undefined"
+                span.time= song.time
     form(action='/setlists/#{setlist._id}/edit',method='post',enctype='application/x-www-form-urlencoded')
         input(type='hidden',value='',name='songArray',id='songArray')
         input(type='hidden',value='PUT',name='_method')
