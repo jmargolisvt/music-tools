@@ -16,7 +16,11 @@ block content
             if ob
               -each song in ob['set_' + i]
                -each k, v in song
-                  li.song.edit(data-id='#{v}' data-name='#{k}')= k
+                  li.song.edit(data-id='#{v}' data-name='#{k.name}' data-time='#{k.time}')
+                    = k.name
+                    if k.time !== "undefined"
+                      span.time
+                        = k.time
       - }
         br(style='clear:both')
 
@@ -27,10 +31,10 @@ block content
         if ob
           -each song in ob['bench']
            -each k, v in song
-              li.song.edit(data-id='#{v}' data-name='#{k}')= k
+              li.song.edit(data-id='#{v}' data-name='#{k.name}' data-time='#{k.time}')= k.name
         else
           - each song, i in songs
-            li.song.edit(data-id='#{song._id}' data-name='#{song.name}')
+            li.song.edit(data-id='#{song._id}' data-name='#{song.name}' data-time='#{song.time}')
               b
                 = song.name
     form(action='/setlists/#{setlist._id}/edit',method='post',enctype='application/x-www-form-urlencoded')
@@ -38,8 +42,8 @@ block content
         input(type='hidden',value='PUT',name='_method')
         button(type='submit') Save Set List
     button(onclick='javascript:window.print()' alt='Print this page') Print Set List
-    h3 Trash
-    - each song, i in songs
-      li.song.edit(data-id='#{song._id}' data-name='#{song.name}')
-        b
-          = song.name
+    #trash
+      - each song, i in songs
+        li.song.edit(data-id='#{song._id}' data-name='#{song.name}' data-time='#{song.time}')
+          b
+            = song.name

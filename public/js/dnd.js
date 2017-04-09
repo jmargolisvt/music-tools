@@ -46,6 +46,8 @@ function getOrder() {
 function buildList(cat, songs) {
   list[cat] = new Array;
   for (i=0; i< songs.length; i++) {
-    list[cat].push({[songs[i].getAttribute('data-id')]: songs[i].getAttribute('data-name')});
+    list[cat].push({[songs[i].getAttribute('data-id')]:
+      {'name':songs[i].getAttribute('data-name'),
+       'time':songs[i].getAttribute('data-time')}});
   }
 }

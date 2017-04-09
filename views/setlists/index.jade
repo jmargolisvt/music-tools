@@ -4,8 +4,8 @@ block content
   .content
     form#formAddSong(name="addsong",method="post",action="/setlists")
       label.control-label Name:
-        input(type="text", placeholder="CBGB's", name="name")
-        input(type='text', name='date', id='date')
+        input(type="text", placeholder="CBGB's", name="name" required)
+        input(type='text', name='date', id='date' required)
         select(name='numSets')
           option(value='1') 1 Set
           option(value='2', selected='') 2 Sets

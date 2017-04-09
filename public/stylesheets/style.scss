@@ -72,6 +72,15 @@ div.lyrics {
     border: 1px solid gray;
   }
 
+  .time {
+    color: chocolate;
+    font-weight: bold;
+    position: absolute;
+    bottom: -20px;
+    font-size: .3em;
+    right: 3px;
+  }
+
   #all_sets {
     display: flex;
 
@@ -92,6 +101,8 @@ div.lyrics {
       background-color: aliceblue;
     }
   }
+
+  #trash {display: none;}
 
   .set-container {
     flex: 1;

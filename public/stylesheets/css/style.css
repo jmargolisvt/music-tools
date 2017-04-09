@@ -60,6 +60,13 @@ div.lyrics {
     background: yellowgreen;
     padding: 2%;
     border: 1px solid gray; }
+  #edit_view .time {
+    color: chocolate;
+    font-weight: bold;
+    position: absolute;
+    bottom: -20px;
+    font-size: .3em;
+    right: 3px; }
   #edit_view #all_sets {
     display: flex; }
     #edit_view #all_sets #set_1, #edit_view #all_sets #set_2, #edit_view #all_sets #set_3 {
@@ -73,6 +80,8 @@ div.lyrics {
       margin: 0 2px;
       padding: 0 1%;
       background-color: aliceblue; }
+  #edit_view #trash {
+    display: none; }
   #edit_view .set-container {
     flex: 1;
     min-height: 300px;
