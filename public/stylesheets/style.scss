@@ -4,13 +4,33 @@
   font-family: sans-serif;
 }
 
-/*--- SONG BLOCKS ---*/
-.song {
-    border: 1px solid gray;
+
+/*--- SHOW SONGS AND SETLISTS ---*/
+.song, .setlist {
+    border-bottom: 1px solid gray;
+    border-left: 1px solid gray;
+    border-right: 1px solid gray;
     display: block;
     overflow: hidden;
     position: relative;
+    ul {
+      display: flex;
+      margin-bottom: 0;
+    }
 
+    li {
+        display: inline-flex;
+        padding: 0 3%;
+        line-height: 3em;
+
+        &.name {flex: 6; min-height: 40px;}
+        &.artist {flex: 4;}
+        &.action {flex: 1;}
+    }
+}
+
+/*--- SHOW SONGS ---*/
+.song {
     &.edit {
       line-height: 3em;
       .set-container & {
@@ -20,22 +40,10 @@
     }
 
     ul {
-      display: flex;
-      margin-bottom: 0;
-
       .set-container & {
         display: block;
         padding: 0;
       }
-    }
-
-    li {
-        display: inline-flex;
-        padding: 0 3%;
-
-        &.name {flex: 6; min-height: 40px;}
-        &.artist {flex: 4;}
-        &.action {flex: 1;}
     }
 }
 

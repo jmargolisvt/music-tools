@@ -3,33 +3,39 @@
   margin: 0;
   font-family: sans-serif; }
 
-/*--- SONG BLOCKS ---*/
-.song {
-  border: 1px solid gray;
+/*--- SHOW SONGS AND SETLISTS ---*/
+.song, .setlist {
+  border-bottom: 1px solid gray;
+  border-left: 1px solid gray;
+  border-right: 1px solid gray;
   display: block;
   overflow: hidden;
   position: relative; }
-  .song.edit {
-    line-height: 3em; }
-    .set-container .song.edit {
-      height: 50px;
-      background: url(/images/drag.png) no-repeat 5% 50% aliceblue; }
-  .song ul {
+  .song ul, .setlist ul {
     display: flex;
     margin-bottom: 0; }
-    .set-container .song ul {
-      display: block;
-      padding: 0; }
-  .song li {
+  .song li, .setlist li {
     display: inline-flex;
-    padding: 0 3%; }
-    .song li.name {
+    padding: 0 3%;
+    line-height: 3em; }
+    .song li.name, .setlist li.name {
       flex: 6;
       min-height: 40px; }
-    .song li.artist {
+    .song li.artist, .setlist li.artist {
       flex: 4; }
-    .song li.action {
+    .song li.action, .setlist li.action {
       flex: 1; }
+
+/*--- SHOW SONGS ---*/
+.song.edit {
+  line-height: 3em; }
+  .set-container .song.edit {
+    height: 50px;
+    background: url(/images/drag.png) no-repeat 5% 50% aliceblue; }
+
+.set-container .song ul {
+  display: block;
+  padding: 0; }
 
 /*--- EDIT SONG STYLES ---*/
 span.chord {
