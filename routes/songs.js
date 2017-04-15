@@ -32,7 +32,7 @@ router.route('/')
                     html: function(){
                         res.render('songs/index', {
                               title: 'Songs',
-                              "songs" : songs
+                              songs : songs.sort( (a, b) => a.name.toUpperCase().localeCompare(b.name.toUpperCase()))
                           });
                     },
                     //JSON response will show all songs in JSON format

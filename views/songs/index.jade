@@ -13,7 +13,7 @@ block content
         button#btnSubmit(type="submit") Add Song
       h3 #{title}
       - each song, i in songs
-          div.song(draggable='true' ondragenter='dragenter(event)' ondragstart='dragstart(event)')
+          div.song
             ul
               li.name
                 b

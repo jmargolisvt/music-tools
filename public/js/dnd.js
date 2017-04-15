@@ -74,7 +74,6 @@ function updateTime(list) {
     total.forEach((x) =>
       arr.push((parseInt(x.split(':')[0]) * 60) + parseInt(x.split(':')[1]))
     );
-    console.log(arr);
     if (arr.length > 0 && set !== 'bench') {
       sec = arr.reduce( (a,b) => a + b );
       min = Math.floor(sec/60) + ":" + zeroPad(sec);
