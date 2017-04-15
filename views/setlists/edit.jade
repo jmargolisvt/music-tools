@@ -16,10 +16,10 @@ block content
           ul.sortable
             if ob
               -each song in ob['set_' + i]
-               -each k, v in song
-                  li.song.edit(data-id='#{v}' data-name='#{k.name}' data-time='#{k.time}')= k.name
+               -each v, k in song
+                  li.song.edit(data-id='#{k}' data-name='#{v.name}' data-time='#{v.time}')= v.name
                     if k.time !== "undefined"
-                      span.time= k.time
+                      span.time= v.time
       - }
         br(style='clear:both')
 
@@ -29,10 +29,10 @@ block content
       ul.sortable
         if ob
           -each song in ob['bench']
-           -each k, v in song
-              li.song.edit(data-id='#{v}' data-name='#{k.name}' data-time='#{k.time}')= k.name
-                if k.time !== "undefined"
-                  span.time= k.time
+           -each v, k in song
+              li.song.edit(data-id='#{k}' data-name='#{v.name}' data-time='#{v.time}')= v.name
+                if v.time !== "undefined"
+                  span.time= v.time
         else
           - each song, i in songs
             li.song.edit(data-id='#{song._id}' data-name='#{song.name}' data-time='#{song.time}')= song.name
