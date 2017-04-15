@@ -39,7 +39,7 @@ function getOrder() {
     var elem = document.getElementById('count_' + i);
     // update the count
     if(elem) {
-      elem.innerHTML = list[sections[i]].length;
+      elem.innerHTML = list[sections[i]].length + ' songs';
     }
   }
   // update the set time
@@ -70,11 +70,21 @@ function updateTime(list) {
 
     // add up time and display it
     let arr = [],
-        min = 0;
-    total.forEach((x) => arr.push(parseInt(x)));
+        min = '';
+    total.forEach((x) =>
+      arr.push((parseInt(x.split(':')[0]) * 60) + parseInt(x.split(':')[1]))
+    );
+    console.log(arr);
     if (arr.length > 0 && set !== 'bench') {
-      min = arr.reduce( (a,b) => a + b );
+      sec = arr.reduce( (a,b) => a + b );
+      min = Math.floor(sec/60) + ":" + zeroPad(sec);
       document.getElementById(set).querySelector('.total-time').innerHTML = min;
     }
   };
+}
+
+function zeroPad (sec) {
+  let x = sec % 60;
+  x > 9 ? x = x : x = '0' + x;
+  return x;
 }

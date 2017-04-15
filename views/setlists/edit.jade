@@ -9,10 +9,10 @@ block content
       - for (var i=1; i<(numSets + 1); i++) {
         .set-container.drop(id="set_#{i}")
           h2 Set #{i}
-          .count(id="count_#{i}")
+          .stats.count(id="count_#{i}")
             if ob
-              = ob['set_' + i].length
-          .total-time
+              = ob['set_' + i].length + ' songs'
+          .stats.total-time
           ul.sortable
             if ob
               -each song in ob['set_' + i]

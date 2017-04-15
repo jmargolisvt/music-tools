@@ -63,14 +63,21 @@ div.lyrics {
     margin: 1% 0;
   }
 
-  .count {
+  .stats {
     position: absolute;
     top: 2%;
-    right: 2%;
     font-size: 1em;
     background: yellowgreen;
     padding: 2%;
     border: 1px solid gray;
+  }
+
+  .count {
+    left: 2%;
+  }
+
+  .total-time {
+    right: 2%;
   }
 
   .time {

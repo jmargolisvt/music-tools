@@ -53,14 +53,17 @@ div.lyrics {
     font-weight: bold;
     width: 100%;
     margin: 1% 0; }
-  #edit_view .count {
+  #edit_view .stats {
     position: absolute;
     top: 2%;
-    right: 2%;
     font-size: 1em;
     background: yellowgreen;
     padding: 2%;
     border: 1px solid gray; }
+  #edit_view .count {
+    left: 2%; }
+  #edit_view .total-time {
+    right: 2%; }
   #edit_view .time {
     color: chocolate;
     font-weight: bold;
