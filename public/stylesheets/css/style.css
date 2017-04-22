@@ -46,7 +46,8 @@ div.lyrics {
   padding: 3%;
   border: 1px solid #000;
   position: relative;
-  padding-top: 10%; }
+  padding-top: 10%;
+  margin-bottom: 3%; }
   div.lyrics:before {
     content: "Lyrics";
     position: absolute;
@@ -151,7 +152,7 @@ nav li {
 
 /*--- EDIT SONG ---*/
 #result {
-  max-width: 50%; }
+  width: 50%; }
 
 /*--- GENERAL---*/
 body {

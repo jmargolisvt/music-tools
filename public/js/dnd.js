@@ -24,6 +24,10 @@ $(document).ready(function() {
     });
   }
 
+  if ($('#result').length) {
+    $('textarea').focus();
+  }
+
   $('#date').datepicker({dateFormat: 'mm/dd/yy'});
 
 });
