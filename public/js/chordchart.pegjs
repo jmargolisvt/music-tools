@@ -1,5 +1,7 @@
 chart = chordSection / lyrics
 
+// CHORDS
+
 chordSection = w:(chord space?)* {
 return "<div class='section'>"
 + w.map(x => x[0]).join('') + "<div>"; }
@@ -8,6 +10,8 @@ chord = first:[a-gA-G] rest:ext*
         { return  first + rest.join(''); } / lyrics
 
 ext = [b#(aug)(dim)(min)(maj7)(min7)(min6)]
+
+// LYRICS
 
 lyrics = first:'ly:' rest: chunk?
 	{ return "<div class='lyrics'>" + rest+ "</div>"}
