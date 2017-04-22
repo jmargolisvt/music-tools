@@ -44,7 +44,17 @@ span.chord {
 div.lyrics {
   background: #fff;
   padding: 3%;
-  border: 1px solid #000; }
+  border: 1px solid #000;
+  position: relative;
+  padding-top: 10%; }
+  div.lyrics:before {
+    content: "Lyrics";
+    position: absolute;
+    font-size: 8px;
+    top: 0;
+    background: mediumpurple;
+    padding: 1%;
+    color: whitesmoke; }
 
 /*--- DRAG AND DROP ---*/
 [draggable] {
@@ -139,6 +149,7 @@ nav li {
     .content #view_setlist .set-container {
       flex: 1; }
 
+/*--- EDIT SONG ---*/
 /*--- GENERAL---*/
 body {
   background-color: gray;
@@ -162,6 +173,9 @@ input {
 
 .left {
   float: left; }
+
+.right {
+  float: right; }
 
 /*--- PRINT ---*/
 @media print {

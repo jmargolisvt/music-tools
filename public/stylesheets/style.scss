@@ -54,6 +54,17 @@ div.lyrics {
   background: #fff;
   padding: 3%;
   border: 1px solid #000;
+  position: relative;
+  padding-top: 10%;
+  &:before {
+    content: "Lyrics";
+    position: absolute;
+    font-size: 8px;
+    top: 0;
+    background: mediumpurple;
+    padding: 1%;
+    color: whitesmoke;
+  }
 }
 
 /*--- DRAG AND DROP ---*/
@@ -186,6 +197,9 @@ nav {
   }
 }
 
+/*--- EDIT SONG ---*/
+#result {}
+
 /*--- GENERAL---*/
 body {
   background-color: gray ;
@@ -211,6 +225,7 @@ input {
 }
 
 .left {float: left;}
+.right {float: right;}
 
 /*--- PRINT ---*/
 @media print {

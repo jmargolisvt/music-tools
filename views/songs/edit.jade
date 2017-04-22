@@ -1,5 +1,7 @@
 extends ../layout
 
+- var peg = require('../../public/js/chordchart.js');
+
 block content
 	h1 #{song.name}
 	form(action='/songs/#{song._id}/edit',method='post',name='updatesong',enctype='application/x-www-form-urlencoded')
@@ -13,8 +15,8 @@ block content
 		p
 			button.btn.btn-default.btn-primary#btnSubmit(type='submit').
 				Update
-		textarea.left(cols='75' rows='50' onKeyup="document.getElementById('result').innerHTML=PARSER.parse(this.value)")
+		textarea.left(cols='75' rows='50' onKeyup="document.getElementById('result').innerHTML=peg.parse(this.value)")
 		p
 			input(type='hidden',value='PUT',name='_method')
 	pre
-		#result(cols='75' rows='50')
+		#result.right(cols='75' rows='50')
