@@ -67,6 +67,13 @@ div.lyrics {
     color: whitesmoke;
   }
 }
+#updateBtn { // lost this class later
+  position: absolute;
+  right: 5%;
+  top: 1%;
+  padding: 2%;
+  font-size: 1em;
+}
 
 /*--- DRAG AND DROP ---*/
 [draggable] {

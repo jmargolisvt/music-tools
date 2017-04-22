@@ -162,7 +162,7 @@ router.route('/:id/edit')
 	//PUT to update a song by ID
 	.put(function(req, res) {
 	    // Get our REST or form values. These rely on the "name" attributes
-      const {name, artist, timeMinutes, timeSeconds}  = req.body;
+      const {name, artist, timeMinutes, timeSeconds, chart}  = req.body;
       console.log(req.body);
       let time = `${parseInt(timeMinutes, 10).toString()}:${timeSeconds}`
 
@@ -172,7 +172,8 @@ router.route('/:id/edit')
 	        song.update({
 	            name : name,
 	            artist : artist,
-              time: time
+              time: time,
+              chart: chart
 	        }, function (err, songID) {
 	          if (err) {
 	              res.send("There was a problem updating the information to the database: " + err);

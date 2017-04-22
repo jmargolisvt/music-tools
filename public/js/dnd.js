@@ -26,6 +26,8 @@ $(document).ready(function() {
 
   if ($('#result').length) {
     $('textarea').focus();
+    let result = PARSER.parse(document.getElementById('input').innerHTML);
+    document.getElementById('result').innerHTML=result;
   }
 
   $('#date').datepicker({dateFormat: 'mm/dd/yy'});
