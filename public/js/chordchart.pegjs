@@ -3,10 +3,10 @@ chart = section
 section = w:((lyrics / chords / title / notes) space?)* { return [].concat.apply([], w).join(''); }
 
 title = first:('--') + space? rest: chunk?
-    { return "<div class='title section'><h5>" + rest + "</h5></div>"}
+    { return "<div class='title section'><h3>" + rest + "</h3></div>"}
 
 notes = first:('..') + space? rest: chunk?
-    { return "<div class='notes section'>" + rest + "</div>"}
+    { return "<div class='notes'>" + rest + "</div>"}
 
 lyrics = first:('ly:') + space? rest: chunk?
 	{ return "<div class='lyrics section'>" + rest + "</div>"}
@@ -18,6 +18,6 @@ chunk = ch:(word space?)* {return [].concat.apply([], ch).join('<p>')}
 
 word = l:letter + {return l.join('')}
 
-letter = [a-zA-Z',:;\-\.\?|!0-9 ]
+letter = [a-zA-Z',:;\-\.\?|!0-9\#()/ ]
 
 space = [ \t\n\r]

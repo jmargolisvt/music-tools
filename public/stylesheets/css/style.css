@@ -44,10 +44,8 @@ span.chord {
 div.section {
   background: #fff;
   padding: 3%;
-  border: 1px solid #000;
   position: relative;
-  padding-top: 10%;
-  margin-bottom: 3%; }
+  padding-top: 5%; }
   div.section:before {
     position: absolute;
     font-size: 8px;
@@ -63,9 +61,14 @@ div.chords:before {
   content: "Chords";
   background: yellowgreen; }
 
-div.notes:before {
-  content: "Notes";
-  background: sienna; }
+div.notes {
+  z-index: 2;
+  border: 1px dashed sienna;
+  font-size: xx-small;
+  position: absolute;
+  right: 5px;
+  padding: 1%;
+  max-width: 25%; }
 
 #updateBtn {
   position: absolute;
@@ -169,7 +172,8 @@ nav li {
 
 /*--- EDIT SONG ---*/
 #result {
-  width: 50%; }
+  width: 50%;
+  position: relative; }
 
 /*--- GENERAL---*/
 body {

@@ -53,10 +53,8 @@ span.chord {font-weight: bold;}
 div.section {
   background: #fff;
   padding: 3%;
-  border: 1px solid #000;
   position: relative;
-  padding-top: 10%;
-  margin-bottom: 3%;
+  padding-top: 5%;
   &:before {
     position: absolute;
     font-size: 8px;
@@ -78,10 +76,13 @@ div.chords {
   }
 }
 div.notes {
-  &:before {
-    content: "Notes";
-    background: sienna;
-  }
+  z-index: 2;
+  border: 1px dashed sienna;
+  font-size: xx-small;
+  position: absolute;
+  right: 5px;
+  padding: 1%;
+  max-width: 25%;
 }
 #updateBtn { // lost this class later
   position: absolute;
@@ -224,6 +225,7 @@ nav {
 /*--- EDIT SONG ---*/
 #result {
   width: 50%;
+  position: relative;
 }
 
 /*--- GENERAL---*/
