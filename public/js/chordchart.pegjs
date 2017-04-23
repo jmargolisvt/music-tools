@@ -1,20 +1,12 @@
-chart = chordSection / lyrics
+chart = section
 
-// CHORDS
+section = w:((lyrics / chords) space?)* {return w.join(''); }
 
-chordSection = w:(chord space?)* {
-return "<div class='section'>"
-+ w.map(x => x[0]).join('') + "<div>"; }
+lyrics = first:('ly:') + space? rest: chunk?
+	{ return "<div class='lyrics section'>" + rest + "</div>"}
 
-chord = first:[a-gA-G] rest:ext*
-        { return  first + rest.join(''); } / lyrics
-
-ext = [b#(aug)(dim)(min)(maj7)(min7)(min6)]
-
-// LYRICS
-
-lyrics = first:'ly:' rest: chunk?
-	{ return "<div class='lyrics'>" + rest+ "</div>"}
+chords = first:('ch:') + space? rest: chunk?
+    { return "<div class='chords section'>" + rest + "</div>"}
 
 chunk = ch:(word space?)* {return ch.map(x => "<p>" + x + "</p>").join('')}
 
@@ -22,8 +14,4 @@ word = l:letter + {return l.join('')}
 
 letter = [a-zA-Z',:;\-\.\?!0-9 ]
 
-repeat = ['r:'0-9+]
-
-verse = v:(chordSection lyrics?) {return "<div>" + rest + "</div>"}
-
-space "whitespace" = [ \t\n\r]
+space = [ \t\n\r]

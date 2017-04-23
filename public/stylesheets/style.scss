@@ -50,7 +50,7 @@
 /*--- EDIT SONG STYLES ---*/
 
 span.chord {font-weight: bold;}
-div.lyrics {
+div.section {
   background: #fff;
   padding: 3%;
   border: 1px solid #000;
@@ -58,13 +58,23 @@ div.lyrics {
   padding-top: 10%;
   margin-bottom: 3%;
   &:before {
-    content: "Lyrics";
     position: absolute;
     font-size: 8px;
     top: 0;
-    background: mediumpurple;
     padding: 1%;
     color: whitesmoke;
+  }
+}
+div.lyrics {
+  &:before {
+    content: "Lyrics";
+    background: mediumpurple;
+  }
+}
+div.chords {
+  &:before {
+    content: "Chords";
+    background: yellowgreen;
   }
 }
 #updateBtn { // lost this class later
