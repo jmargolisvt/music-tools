@@ -77,6 +77,12 @@ div.chords {
     background: yellowgreen;
   }
 }
+div.notes {
+  &:before {
+    content: "Notes";
+    background: sienna;
+  }
+}
 #updateBtn { // lost this class later
   position: absolute;
   right: 5%;

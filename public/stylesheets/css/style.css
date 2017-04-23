@@ -63,6 +63,10 @@ div.chords:before {
   content: "Chords";
   background: yellowgreen; }
 
+div.notes:before {
+  content: "Notes";
+  background: sienna; }
+
 #updateBtn {
   position: absolute;
   right: 5%;
