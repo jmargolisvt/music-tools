@@ -1,6 +1,6 @@
 chart = section
 
-section = w:((lyrics / chords / title / notes) space?)* {return w.join(''); }
+section = w:((lyrics / chords / title / notes) space?)* { return [].concat.apply([], w).join(''); }
 
 title = first:('--') + space? rest: chunk?
     { return "<div class='title section'><h5>" + rest + "</h5></div>"}
@@ -14,7 +14,7 @@ lyrics = first:('ly:') + space? rest: chunk?
 chords = first:('ch:') + space? rest: chunk?
     { return "<div class='chords section'>" + rest + "</div>"}
 
-chunk = ch:(word space?)* {return ch.map(x => "<p>" + x + "</p>").join('')}
+chunk = ch:(word space?)* {return [].concat.apply([], ch).join('<p>')}
 
 word = l:letter + {return l.join('')}
 

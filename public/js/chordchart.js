@@ -141,7 +141,7 @@
         peg$startRuleFunctions = { chart: peg$parsechart },
         peg$startRuleFunction  = peg$parsechart,
 
-        peg$c0 = function(w) {return w.join(''); },
+        peg$c0 = function(w) { return [].concat.apply([], w).join(''); },
         peg$c1 = "--",
         peg$c2 = peg$literalExpectation("--", false),
         peg$c3 = function(first, rest) { return "<div class='title section'><h5>" + rest + "</h5></div>"},
@@ -154,7 +154,7 @@
         peg$c10 = "ch:",
         peg$c11 = peg$literalExpectation("ch:", false),
         peg$c12 = function(first, rest) { return "<div class='chords section'>" + rest + "</div>"},
-        peg$c13 = function(ch) {return ch.map(x => "<p>" + x + "</p>").join('')},
+        peg$c13 = function(ch) {return [].concat.apply([], ch).join('<p>')},
         peg$c14 = function(l) {return l.join('')},
         peg$c15 = /^[a-zA-Z',:;\-.?|!0-9 ]/,
         peg$c16 = peg$classExpectation([["a", "z"], ["A", "Z"], "'", ",", ":", ";", "-", ".", "?", "|", "!", ["0", "9"], " "], false, false),
