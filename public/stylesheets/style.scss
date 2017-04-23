@@ -226,6 +226,11 @@ nav {
 #result {
   width: 50%;
   position: relative;
+
+  .show-song & {
+    width: 100%;
+    float: none;
+  }
 }
 
 /*--- GENERAL---*/
