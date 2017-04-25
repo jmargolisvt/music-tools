@@ -138,6 +138,33 @@ router.route('/:id')
     });
   });
 
+router.route('/:id/update')
+  .put(function(req, res) {
+    console.log(req.body);
+      // Get our REST or form values. These rely on the "name" attributes
+      var songArray = req.body.songArray;
+
+      //find the document by ID
+      mongoose.model('Setlist').findById(req.id, function (err, setlist) {
+          //update it
+          setlist.update({
+          }, function (err, setlistID) {
+            if (err) {
+                res.send("There was a problem updating the information to the database: " + err);
+            }
+            else {
+                    //HTML responds by going back to the page or you can be fancy and create a new view that shows a success page.
+                    res.format({
+                       //JSON responds showing the updated values
+                      json: function(){
+                             res.json(setlist);
+                       }
+                    });
+             }
+          })
+      });
+  })
+
 router.route('/:id/edit')
 	//GET the individual setlist by Mongo ID
 	.get(function(req, res) {

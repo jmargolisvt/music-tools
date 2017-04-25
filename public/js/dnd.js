@@ -36,6 +36,27 @@ $(document).ready(function() {
 
 var list = new Object;
 
+function saveSet(set) {
+  var jqxhr = $.ajax( {
+    method: "PUT",
+    dataType: "json",
+    songArray: set,
+    data: {name: "new new"},
+    url:"/setlists/" + window.location.pathname.split( '/' )[2] + "/update"
+  })
+  .done(function(res) {
+    console.log( "success" );
+    console.log( res );
+  })
+  .fail(function(err) {
+    console.log("error");
+    console.log( "error" + JSON.stringify(err) );
+  })
+  .always(function() {
+    // alert( "complete" );
+  });
+}
+
 function getOrder() {
   let sections = ['bench', 'set_1', 'set_2', 'set_3'];
   for (var i = 0; i < sections.length; i++) {
@@ -50,7 +71,10 @@ function getOrder() {
   }
   // update the set time
   updateTime(list);
+  // update the hidden input
   document.getElementById("songArray").value = JSON.stringify(list);
+  // save the set
+  saveSet(list);
 }
 
 function buildList(cat, songs) {
