@@ -10,9 +10,10 @@ block content
 		label Time:
 			input#time_minutes(type="number", value="0", min="0", max="30", name="timeMinutes")
 			input#time_seconds(type="number", value="00", min="0", max="59", name="timeSeconds")
-		textarea#input.left(cols='50' rows='30' name="chart" onKeyup="document.getElementById('result').innerHTML=PARSER.parse(this.value)") #{song.chart}
+		input(type="hidden" name="chart" value="document.getElementById('input').value")
 		p
 			button#updateBtn(type='submit').
 				Update
 			input(type='hidden',value='PUT',name='_method')
+	textarea#input.left(cols='50' rows='30' name="chart" onKeyup="document.getElementById('result').innerHTML=PARSER.parse(this.value)") #{song.chart}
 	#result.right

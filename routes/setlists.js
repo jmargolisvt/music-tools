@@ -140,10 +140,9 @@ router.route('/:id')
 
 router.route('/:id/update')
   .put(function(req, res) {
-    console.log(req.body);
+    // console.log(req.body);
       // Get our REST or form values. These rely on the "name" attributes
       var songArray = req.body.songArray;
-
       //find the document by ID
       mongoose.model('Setlist').findById(req.id, function (err, setlist) {
           //update it
@@ -154,7 +153,17 @@ router.route('/:id/update')
             }
             else {
                     //HTML responds by going back to the page or you can be fancy and create a new view that shows a success page.
-                    res.format({
+                    res.format({ // some change
+                      //HTML response will render the 'edit.jade' template
+                      html: function(){
+                             res.render('/:id/edit', {
+                                title: setlist.name,
+                                setlist : setlist,
+                                songArray: setlist.songArray,
+                                songs : songs,
+                                numSets : setlist.numSets
+                            });
+                     },
                        //JSON responds showing the updated values
                       json: function(){
                              res.json(setlist);

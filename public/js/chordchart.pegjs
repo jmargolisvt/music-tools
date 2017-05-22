@@ -1,9 +1,12 @@
 chart = section
 
-section = w:((lyrics / chords / title / notes) space?)* { return [].concat.apply([], w).join(''); }
+section = w:((lyrics / chords / notes / title / end) space?)* { return [].concat.apply([], w).join(''); }
 
-title = first:('--') + space? rest: chunk?
-    { return "<div class='title section'><h3>" + rest + "</h3></div>"}
+title = first:('--') + space? rest: plainChunk?
+    { return "<fieldset><legend>" + rest + "</legend>"}
+
+end = first:('end') + space?
+    { return "</fieldset>"}
 
 notes = first:('..') + space? rest: chunk?
     { return "<div class='notes'>" + rest + "</div>"}
@@ -13,6 +16,8 @@ lyrics = first:('ly:') + space? rest: chunk?
 
 chords = first:('ch:') + space? rest: chunk?
     { return "<div class='chords section'>" + rest + "</div>"}
+
+plainChunk = ch:(word space?)* {return [].concat.apply([], ch).join('')}
 
 chunk = ch:(word space?)* {return [].concat.apply([], ch).join('<p>')}
 

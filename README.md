@@ -27,5 +27,7 @@ Licensing
 ---------
 express-node-mongo-skeleton is freely distributed under the MIT License. See LICENSE for details
 
+starting with nodemon:
+
 node-sass -o css style.scss -w
 from the /public/js/ dir: pegjs --export-var PARSER --format globals -o chordchart.js chordchart.pegjs
