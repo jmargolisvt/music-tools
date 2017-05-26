@@ -245,6 +245,18 @@ nav {
     float: none;
   }
 }
+form#edit_song {
+  .row {
+    display: flex;
+    div {
+      flex: 1;
+      padding: 1%;
+      &.wide {
+        flex: 3;
+      }
+    }
+  }
+}
 
 /*--- GENERAL---*/
 body {
@@ -267,7 +279,15 @@ h2 {
 li {list-style-type: none;}
 
 input {
-  margin-right: 5%;
+  margin: 0 5% 0 1%;
+  padding: 1% 2%;
+  height: 25px;
+  font-size: 1em;
+}
+
+label {
+  font-size: 1em;
+  color: #fff;
 }
 
 .left {float: left;}

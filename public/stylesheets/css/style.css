@@ -191,6 +191,14 @@ nav li {
     width: 100%;
     float: none; }
 
+form#edit_song .row {
+  display: flex; }
+  form#edit_song .row div {
+    flex: 1;
+    padding: 1%; }
+    form#edit_song .row div.wide {
+      flex: 3; }
+
 /*--- GENERAL---*/
 body {
   background-color: darkslateblue;
@@ -210,7 +218,14 @@ li {
   list-style-type: none; }
 
 input {
-  margin-right: 5%; }
+  margin: 0 5% 0 1%;
+  padding: 1% 2%;
+  height: 25px;
+  font-size: 1em; }
+
+label {
+  font-size: 1em;
+  color: #fff; }
 
 .left {
   float: left; }

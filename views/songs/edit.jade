@@ -2,14 +2,22 @@ extends ../layout
 
 block content
 	h1 #{song.name}
-	form(action='/songs/#{song._id}/edit',method='post',name='updatesong',enctype='application/x-www-form-urlencoded')
-		label Name*:
-			input#inputName(type="text", value="#{song.name}", name="name" required)
-		label Artist:
-			input#inputArtist(type="text", value="#{song.artist}", name="artist")
-		label Time:
-			input#time_minutes(type="number", value="0", min="0", max="30", name="timeMinutes")
-			input#time_seconds(type="number", value="00", min="0", max="59", name="timeSeconds")
+	form(action='/songs/#{song._id}/edit',
+			 method='post',
+			 name='updatesong',
+			 enctype='application/x-www-form-urlencoded',
+			 id='edit_song')
+		.row
+			div.wide
+				label Name*:
+					input#inputName(type="text", value="#{song.name}", name="name" required)
+			div.wide
+				label Artist:
+					input#inputArtist(type="text", value="#{song.artist}", name="artist")
+			div
+				label Time:
+					input#time_minutes(type="number", value="0", min="0", max="30", name="timeMinutes")
+					input#time_seconds(type="number", value="00", min="0", max="59", name="timeSeconds")
 		p
 			button#updateBtn(type='submit').
 				Update
