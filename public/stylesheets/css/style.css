@@ -86,12 +86,13 @@ div.notes {
   padding: 1%;
   max-width: 25%; }
 
-#updateBtn {
-  position: absolute;
-  right: 5%;
-  top: 1%;
+button {
   padding: 2%;
   font-size: 1em; }
+  button#updateBtn {
+    position: absolute;
+    right: 5%;
+    top: 1%; }
 
 /*--- DRAG AND DROP ---*/
 [draggable] {
