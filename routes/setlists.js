@@ -189,6 +189,7 @@ router.route('/:id/edit')
                 if (err) {
                   console.log('ERROR: ' + err);
                 } else {
+                   let orderedSongs = songs.sort((a,b) => a.name.toLowerCase() > b.name.toLowerCase())
 	                 res.format({
   	                //HTML response will render the 'edit.jade' template
   	                html: function(){
@@ -196,14 +197,14 @@ router.route('/:id/edit')
   	                          title: setlist.name,
   	                          setlist : setlist,
                               songArray: setlist.songArray,
-                              songs : songs,
+                              songs : orderedSongs,
                               numSets : setlist.numSets
   	                      });
 	                 },
 	                 //JSON response will return the JSON output
 	                json: function(){
 	                       res.json(setlist);
-                         res.json(songs);
+                         res.json(orderedSongs);
 	                 }
 	            });
 	        }
