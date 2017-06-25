@@ -75,6 +75,10 @@ legend {
 }
 fieldset {
   background: darkolivegreen;
+  box-shadow: 2px 2px 10px #000;
+    &:not(:first-child) {
+      margin-top: 5%;
+    }
 }
 div.lyrics {
   &:before {
@@ -239,22 +243,12 @@ nav {
 #result {
   width: 50%;
   position: relative;
+  padding: 2%;
+  background-color: lightgray;
 
   .show-song & {
     width: 100%;
     float: none;
-  }
-}
-form#edit_song {
-  .row {
-    display: flex;
-    div {
-      flex: 1;
-      padding: 1%;
-      &.wide {
-        flex: 3;
-      }
-    }
   }
 }
 
@@ -279,10 +273,9 @@ h2 {
 li {list-style-type: none;}
 
 input {
-  margin: 0 5% 0 1%;
   padding: 1% 2%;
+  margin: 1% 2%;
   height: 25px;
-  font-size: 1em;
 }
 
 label {
@@ -292,6 +285,17 @@ label {
 
 .left {float: left;}
 .right {float: right;}
+
+.row {
+  display: flex;
+  div {
+    flex: 1;
+    padding: 1%;
+    &.wide {
+      flex: 2;
+    }
+  }
+}
 
 /*--- PRINT ---*/
 @media print {

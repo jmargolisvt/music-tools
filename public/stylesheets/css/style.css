@@ -64,7 +64,10 @@ legend {
   min-width: 100px; }
 
 fieldset {
-  background: darkolivegreen; }
+  background: darkolivegreen;
+  box-shadow: 2px 2px 10px #000; }
+  fieldset:not(:first-child) {
+    margin-top: 5%; }
 
 div.lyrics:before {
   content: "Lyrics";
@@ -186,18 +189,12 @@ nav li {
 /*--- EDIT SONG ---*/
 #result {
   width: 50%;
-  position: relative; }
+  position: relative;
+  padding: 2%;
+  background-color: lightgray; }
   .show-song #result {
     width: 100%;
     float: none; }
-
-form#edit_song .row {
-  display: flex; }
-  form#edit_song .row div {
-    flex: 1;
-    padding: 1%; }
-    form#edit_song .row div.wide {
-      flex: 3; }
 
 /*--- GENERAL---*/
 body {
@@ -218,10 +215,9 @@ li {
   list-style-type: none; }
 
 input {
-  margin: 0 5% 0 1%;
   padding: 1% 2%;
-  height: 25px;
-  font-size: 1em; }
+  margin: 1% 2%;
+  height: 25px; }
 
 label {
   font-size: 1em;
@@ -232,6 +228,14 @@ label {
 
 .right {
   float: right; }
+
+.row {
+  display: flex; }
+  .row div {
+    flex: 1;
+    padding: 1%; }
+    .row div.wide {
+      flex: 2; }
 
 /*--- PRINT ---*/
 @media print {
