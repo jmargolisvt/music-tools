@@ -3,4 +3,8 @@ extends layout
 block content
   h4= message
   h5= error.status
+  p
+    button(onclick='history.back(-1)') Back
+  br
+  br
   pre #{error.stack}

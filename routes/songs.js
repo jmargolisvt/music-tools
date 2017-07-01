@@ -83,11 +83,11 @@ router.get('/new', function(req, res) {
 
 // route middleware to validate :id
 router.param('id', function(req, res, next, id) {
-    //console.log('validating ' + id + ' exists');
+    console.log('validating ' + id + ' exists');
     //find the ID in the Database
     mongoose.model('Song').findById(id, function (err, song) {
         //if it isn't found, we are going to repond with 404
-        if (err) {
+        if (err || !song) {
             console.log(id + ' was not found');
             res.status(404)
             var err = new Error('Not Found');
@@ -103,7 +103,7 @@ router.param('id', function(req, res, next, id) {
         //if it is found we continue on
         } else {
             //uncomment this next line if you want to see every JSON document response for every GET/PUT/DELETE call
-            //console.log(song);
+            console.log(song);
             // once validation is done save the new item in the req
             req.id = id;
             // go to the next thing
@@ -115,8 +115,8 @@ router.param('id', function(req, res, next, id) {
 router.route('/:id')
   .get(function(req, res) {
     mongoose.model('Song').findById(req.id, function (err, song) {
-      if (err) {
-        console.log('GET Error: There was a problem retrieving: ' + err);
+      if (err || !song ) {
+        console.log('GET Error: There was a problem retrieving this song. ');
       } else {
         console.log('GET Retrieving ID: ' + song._id);
         res.format({
