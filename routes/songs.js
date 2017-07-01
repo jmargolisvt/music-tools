@@ -47,7 +47,11 @@ router.route('/')
     .post(function(req, res) {
         // Get values from POST request. These can be done through forms or REST calls. These rely on the "name" attributes for forms
         const {name, artist, timeMinutes, timeSeconds}  = req.body;
-        let time = `${parseInt(timeMinutes, 10).toString()}:${timeSeconds}`
+        var time = '0:00';
+
+        if (timeMinutes.length && timeSeconds.length) {
+          time = `${parseInt(timeMinutes, 10).toString()}:${timeSeconds}`;
+        }
         //call the create function for our database
         mongoose.model('Song').create({
             name : name,

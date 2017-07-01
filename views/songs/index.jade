@@ -16,15 +16,13 @@ block content
           div.song
             ul
               li.name
-                b
-                  a(href='/songs/#{song._id}')
-                    = song.name
+                a(href='/songs/#{song._id}')
+                  = song.name
               li.time
                 = song.time
               li.action
                 form(action='/songs/#{song._id}/edit',method='post',enctype='application/x-www-form-urlencoded')
                     input(type='hidden',value='DELETE',name='_method')
-                    button(type='submit').
-                        Delete
+                    button(type='submit') Delete
               li.action
-                  button(onclick="window.location='/songs/#{song._id}/edit'") Edit
+                  a(href='/songs/#{song._id}/edit') Edit

@@ -17,18 +17,15 @@ block content
         div.setlist
           ul
             li.name
-              b
+              a(href='/setlists/#{setlist._id}')
                 = setlist.name
             li
                 = setlist.numSets
             li
                 = setlist.date.toLocaleDateString('en-US')
             li
-                a(href='/setlists/#{setlist._id}/edit') Edit
-            li
-                a(href='/setlists/#{setlist._id}') Show
-            li
               form(action='/setlists/#{setlist._id}/edit',method='post',enctype='application/x-www-form-urlencoded')
                   input(type='hidden',value='DELETE',name='_method')
-                  button(type='submit').
-                      Delete
+                  button(type='submit') Delete
+            li
+                a(href='/setlists/#{setlist._id}/edit') Edit
