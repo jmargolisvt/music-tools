@@ -1,12 +1,7 @@
-extends ../layout
+extends ../songLayout
 
 block content
     div.show-song
       h1.bg-primary.text-center #{song.name}
-      p
-        button(onclick='history.back(-1)') Back
-
-      p
-        button(onclick="window.location='/songs/#{song._id}/edit'") Edit
       textarea#input.left(cols='50' rows='30' style="display: none;" name="chart" onKeyup="document.getElementById('result').innerHTML=PARSER.parse(this.value)") #{song.chart}
       #result.right

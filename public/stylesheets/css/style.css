@@ -242,7 +242,7 @@ label {
 @media print {
   * {
     color: #000; }
-  nav, button {
+  nav {
     display: none; }
   a {
     text-decoration: none; }

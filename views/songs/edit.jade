@@ -1,4 +1,4 @@
-extends ../layout
+extends ../songEditlayout
 
 block content
 	h1 #{song.name}
@@ -22,8 +22,6 @@ block content
 					input#time_minutes(type="number", value="#{timeMin}", min="0", max="30", name="timeMinutes")
 					input#time_seconds(type="number", value="#{timeSec}", min="0", max="59", name="timeSeconds")
 		p
-			button#updateBtn(type='submit').
-				Update
 			textarea#input.left(cols='50' rows='30' name="chart" onKeyup="document.getElementById('result').innerHTML=PARSER.parse(this.value)") #{song.chart}
 			input(type='hidden',value='PUT',name='_method')
 	#result.right

@@ -16,4 +16,8 @@ html
           a(href="/songs") Songs
         li.right
           a(onclick='history.back(-1)' href='#') Back
+        li.right
+          a(href='/setlists/#{setlist._id}/edit') Edit
+        li.right
+          a(onclick='javascript:window.print()' href='#' alt='Print this page') Print
     block content

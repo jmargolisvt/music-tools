@@ -16,4 +16,6 @@ html
           a(href="/songs") Songs
         li.right
           a(onclick='history.back(-1)' href='#') Back
+        li.right
+          a(href='#' onclick="document.getElementById('edit_song').submit();") Save
     block content

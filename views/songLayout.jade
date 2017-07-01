@@ -16,4 +16,7 @@ html
           a(href="/songs") Songs
         li.right
           a(onclick='history.back(-1)' href='#') Back
+        li.right
+          a(onclick="window.location='/songs/#{song._id}/edit'" href='#') Edit
+
     block content
