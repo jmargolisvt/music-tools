@@ -88,11 +88,8 @@ div.notes {
 
 button {
   padding: 2%;
-  font-size: 1em; }
-  button#updateBtn {
-    position: absolute;
-    right: 5%;
-    top: 1%; }
+  font-size: 1em;
+  width: 150px; }
 
 /*--- DRAG AND DROP ---*/
 [draggable] {
@@ -221,8 +218,11 @@ input {
   height: 25px; }
 
 label {
-  font-size: 1em;
-  color: #fff; }
+  font-size: 1em; }
+
+select {
+  height: 2em;
+  font-size: 1.25em; }
 
 .left {
   float: left; }

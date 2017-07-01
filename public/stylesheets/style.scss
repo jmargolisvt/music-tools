@@ -104,11 +104,7 @@ div.notes {
 button {
     padding: 2%;
     font-size: 1em;
-  &#updateBtn { // lose this class later
-    position: absolute;
-    right: 5%;
-    top: 1%;
-  }
+    width: 150px;
 }
 
 /*--- DRAG AND DROP ---*/
@@ -282,7 +278,11 @@ input {
 
 label {
   font-size: 1em;
-  color: #fff;
+}
+
+select {
+  height: 2em;
+  font-size: 1.25em;
 }
 
 .left {float: left;}

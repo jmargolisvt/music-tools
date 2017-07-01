@@ -2,20 +2,15 @@ extends ../layouts/layout
 
 block content
     .content
-      form#formAddSong(name="addsong",method="post",action="/songs")
-        .row
-          .wide
-            label Name*:
-              input#inputName(type="text", placeholder="Free Bird", name="name" required)
-          .wide
-            label Artist:
-              input#inputArtist(type="text", placeholder="Lynard Skynard", name="artist")
-          .wide
-            label Time:
-              input#time_minutes(type="number", placeholder="0", min="0", max="30", name="timeMinutes")
-              input#time_seconds(type="number", placeholder="00", min="0", max="59", name="timeSeconds")
-          div
-            button#btnSubmit(type="submit") Add Song
+      form#formAddSong(name="addSong",method="post",action="/songs")
+          label Name*
+            input#inputName(type="text", placeholder="Free Bird", name="name" required)
+          label Artist
+            input#inputArtist(type="text", placeholder="Lynard Skynard", name="artist")
+          label Time
+            input#time_minutes(type="number", placeholder="0", min="0", max="30", name="timeMinutes")
+            input#time_seconds(type="number", placeholder="00", min="0", max="59", name="timeSeconds")
+          button.right(type="submit") Add Song
       h3 #{title}
       - each song, i in songs
           div.song

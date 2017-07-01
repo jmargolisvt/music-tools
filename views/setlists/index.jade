@@ -2,15 +2,16 @@ extends ../layouts/layout
 
 block content
   .content
-    form#formAddSong(name="addsong",method="post",action="/setlists")
-      label.control-label Name:
+    form#formAddSong(name="addSetlist",method="post",action="/setlists")
+      label Name*
         input(type="text", placeholder="CBGB's", name="name" required)
+      label Date*
         input(type='text', name='date', id='date' required)
-        select(name='numSets')
-          option(value='1') 1 Set
-          option(value='2', selected='') 2 Sets
-          option(value='3') 3 Sets
-      button#btnSubmit.btn.btn-primary(type="submit") Add Setlist
+      select(name='numSets')
+        option(value='1') 1 Set
+        option(value='2', selected='') 2 Sets
+        option(value='3') 3 Sets
+      button.right(type="submit") Add Setlist
     h3.bg-primary.text-center #{title}
     - each setlist, i in setlists
         div.setlist
