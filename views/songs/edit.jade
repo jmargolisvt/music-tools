@@ -15,9 +15,12 @@ block content
 				label Artist:
 					input#inputArtist(type="text", value="#{song.artist}", name="artist")
 			div
+				- var time = song.time
+				- var timeMin = time? time.split(':')[0] : '0';
+				- var timeSec = time? time.split(':')[1] : '00';
 				label Time:
-					input#time_minutes(type="number", value="0", min="0", max="30", name="timeMinutes")
-					input#time_seconds(type="number", value="00", min="0", max="59", name="timeSeconds")
+					input#time_minutes(type="number", value="#{timeMin}", min="0", max="30", name="timeMinutes")
+					input#time_seconds(type="number", value="#{timeSec}", min="0", max="59", name="timeSeconds")
 		p
 			button#updateBtn(type='submit').
 				Update
