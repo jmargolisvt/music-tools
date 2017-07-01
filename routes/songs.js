@@ -59,7 +59,10 @@ router.route('/')
             time: time
         }, function (err, song) {
               if (err) {
-                  res.send("There was a problem adding the information to the database." + err);
+                if (err.name === 'MongoError' && err.code === 11000) {
+                  // Duplicate name
+                  return res.status(500).send({ success: false, message: 'User already exist!' });
+                }
               } else {
                   //Song has been created
                   console.log('POST creating new song: ' + song);

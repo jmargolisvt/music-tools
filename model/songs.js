@@ -1,6 +1,6 @@
 var mongoose = require('mongoose');
 var songSchema = new mongoose.Schema({
-  name: String,
+  name: { type : String, unique: true },
   artist: String,
   time: String,
   chart: String
