@@ -26,7 +26,7 @@
     .song li.action, .setlist li.action {
       flex: 1; }
 
-/*--- SHOW SONGS ---*/
+/*--- SONGS VIEW ---*/
 .song.edit {
   line-height: 3em; }
   .set-container .song.edit {
@@ -36,6 +36,19 @@
 .set-container .song ul {
   display: block;
   padding: 0; }
+
+#display_actions {
+  position: fixed;
+  bottom: 0;
+  width: 100%; }
+  #display_actions ul {
+    display: flex; }
+    #display_actions ul li {
+      flex: 1;
+      text-align: center;
+      padding: 2%;
+      border-right: 1px solid black;
+      background: darkorange; }
 
 /*--- EDIT SONG STYLES ---*/
 span.chord {

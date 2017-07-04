@@ -1,15 +1,13 @@
 $(document).ready(function() {
+  // we are on the setlist edit page
   if ($('#edit_view').length) {
     getOrder();
     $( '.song.edit' ).draggable({
       connectToSortable: '.sortable',
       revert: 'invalid'
     });
-
     $( '.sortable' ).sortable({});
-
     $( '.sortable' ).disableSelection();
-
     $( '.drop' ).droppable({
       drop: function (event, ui) {
           $(this).find('.sortable')
@@ -24,10 +22,23 @@ $(document).ready(function() {
     });
   }
 
+  // we are on the song edit page
   if ($('#result').length) {
     $('textarea').focus();
     let result = PARSER.parse(document.getElementById('input').innerHTML);
     document.getElementById('result').innerHTML=result;
+  }
+
+  // we are on the song view page
+  if ($('#display_actions').length) {
+    let btns = document.querySelectorAll('#display_actions .toggle');
+
+    // toggle sections on click
+    btns.forEach(
+      (x) =>
+        x.addEventListener('click', () =>
+          $('.'+ event.target.id).toggle())
+    );
   }
 
   $('#date').datepicker({dateFormat: 'mm/dd/yy'});
