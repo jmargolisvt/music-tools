@@ -21,7 +21,9 @@ block content
               li.time
                 = song.time
               li.action
-                form(action='/songs/#{song._id}/edit',method='post',enctype='application/x-www-form-urlencoded')
+                form(action='/songs/#{song._id}/edit',method='post',
+                     enctype='application/x-www-form-urlencoded',
+                     onsubmit="return confirm('Delete this song?');")
                     input(type='hidden',value='DELETE',name='_method')
                     button(type='submit') Delete
               li.action

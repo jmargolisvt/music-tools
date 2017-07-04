@@ -24,7 +24,9 @@ block content
             li
                 = setlist.date.toLocaleDateString('en-US')
             li
-              form(action='/setlists/#{setlist._id}/edit',method='post',enctype='application/x-www-form-urlencoded')
+              form(action='/setlists/#{setlist._id}/edit',method='post',
+                   enctype='application/x-www-form-urlencoded',
+                   onsubmit="return confirm('Delete this set?');")
                   input(type='hidden',value='DELETE',name='_method')
                   button(type='submit') Delete
             li
