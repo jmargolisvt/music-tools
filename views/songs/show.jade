@@ -1,12 +1,12 @@
 extends ../layouts/songLayout
 
 block content
-    div.show-song
-      h1.bg-primary.text-center #{song.name}
-      textarea#input.left(cols='50' rows='30' style="display: none;" name="chart" onKeyup="document.getElementById('result').innerHTML=PARSER.parse(this.value)") #{song.chart}
-      #result.right
-    div#display_actions
-      ul
-        li.toggle#lyrics Lyrics
-        li.toggle#chords Chords
-        li.toggle#notes Notes
+  div.show-song
+    h1.bg-primary.text-center #{song.name}
+    textarea#input.left(cols='50' rows='30' style="display: none;" name="chart" onKeyup="document.getElementById('result').innerHTML=PARSER.parse(this.value)") #{song.chart}
+    #result.right
+  div#display_actions
+    ul
+      li.toggle#lyrics Lyrics
+      li.toggle#chords Chords
+      li.toggle#notes Notes
