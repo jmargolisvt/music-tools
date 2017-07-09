@@ -13,6 +13,9 @@
     display: block;
     overflow: hidden;
     position: relative;
+    &:first-of-type {
+      border-top: 1px solid gray;
+    }
     ul {
       display: flex;
       margin-bottom: 0;
@@ -186,12 +189,14 @@ button {
   #bench {
     padding: 3%;
     background: lightblue;
+    min-height: 100px;
 
     .song {
       display: inline-block;;
       margin: 0 2px;
       padding: 0 1%;
       background-color: aliceblue;
+      border-top: 1px solid gray;
     }
   }
 
@@ -285,11 +290,13 @@ body {
 }
 
 h1, h3 {
-  padding: 2% 1%;
+  padding: 2% 15%;
   text-align: center;
   background-color: yellowgreen;
   text-shadow: 2px 2px 5px #888;
   color: #fff;
+  display: table;
+  margin: 0 auto;
 }
 
 h2 {

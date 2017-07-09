@@ -11,6 +11,8 @@
   display: block;
   overflow: hidden;
   position: relative; }
+  .song:first-of-type, .setlist:first-of-type {
+    border-top: 1px solid gray; }
   .song ul, .setlist ul {
     display: flex;
     margin-bottom: 0; }
@@ -152,12 +154,14 @@ button {
       padding: 1%; }
   #edit_view #bench {
     padding: 3%;
-    background: lightblue; }
+    background: lightblue;
+    min-height: 100px; }
     #edit_view #bench .song {
       display: inline-block;
       margin: 0 2px;
       padding: 0 1%;
-      background-color: aliceblue; }
+      background-color: aliceblue;
+      border-top: 1px solid gray; }
   #edit_view #trash {
     display: none; }
   #edit_view .set-container {
@@ -225,11 +229,13 @@ body {
   padding: 0 5%; }
 
 h1, h3 {
-  padding: 2% 1%;
+  padding: 2% 15%;
   text-align: center;
   background-color: yellowgreen;
   text-shadow: 2px 2px 5px #888;
-  color: #fff; }
+  color: #fff;
+  display: table;
+  margin: 0 auto; }
 
 h2 {
   line-height: 2em; }
