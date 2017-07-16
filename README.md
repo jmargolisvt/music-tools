@@ -8,3 +8,15 @@ To watch sass, from the public/stylesheets dir, run:
 To generate a new parser for the chord chart, from the /public/js/ dir run: `pegjs --export-var PARSER --format globals -o chordchart.js chordchart.pegjs`
 
 This app was built on top of https://github.com/kacole2/express-node-mongo-skeleton. You can read about installation there.
+
+### Create a chord chart
+
+`-- ` creates a section title
+
+`end` closes a section
+
+`.. ` creates a notes div
+
+`ly: ` creates a lyrics div
+
+`ch: ` creates a chords div
