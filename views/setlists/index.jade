@@ -2,6 +2,7 @@ extends ../layouts/layout
 
 block content
   .content
+    h3 #{title}
     form#formAddSong(name="addSetlist",method="post",action="/setlists")
       label Name*
         input(type="text", placeholder="CBGB's", name="name" required)
@@ -12,7 +13,6 @@ block content
         option(value='2', selected='') 2 Sets
         option(value='3') 3 Sets
       button.right(type="submit") Add Setlist
-    h3.bg-primary.text-center #{title}
     - each setlist, i in setlists
         div.setlist
           ul

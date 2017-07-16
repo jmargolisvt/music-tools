@@ -231,11 +231,13 @@ body {
 h1, h3 {
   padding: 2% 15%;
   text-align: center;
-  background-color: yellowgreen;
-  text-shadow: 2px 2px 5px #888;
-  color: #fff;
   display: table;
   margin: 0 auto; }
+
+h1 {
+  background-color: yellowgreen;
+  text-shadow: 2px 2px 5px #888;
+  color: #fff; }
 
 h2 {
   line-height: 2em; }

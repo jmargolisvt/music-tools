@@ -1,33 +1,10 @@
-express-node-mongo-skeleton
-======================
-express-node-mongo-skeleton was made to have a simple skeleton for a completed Web App ready to go for demonstration purposes and learning how to build CRUD & REST operations into a Node.js Web App. This is the final example that is demonstrated in [How to Create a Complete Express.js + Node.js + MongoDB CRUD and REST Skeleton](https://www.airpair.com/javascript/complete-expressjs-nodejs-mongodb-crud-skeleton)
+# Chord Charts, Set Lists
 
-## Installation
-- Perform a clone of this repo.
-- Make sure MongoDB is installed (`brew install mongodb`)
-- Create a MongoDB database named `enmskeleton` (`use enmskeleton`)
-- Install packages and start the express.js web service (`npm install && npm start`)
-- Navigate to `http://127.0.0.1:3000` to see the express.js welcome page
+This tool is intended for musicians who want tools to more easily managing a song catalog and write set lists.  It's a Node app with JQuery UI for drag-and-drop goodness.  PEGJS is used to generate a parser for writing interactive chord charts.  It's far from complete, has bugs, etc. but you can help make it better!  Pull requests welcome. :)
 
-## Usage Instructions
-All of the MVC pieces are built, but are also rudimentary and not flashy. The root of our webapp goes to the express.js landing page, but there is a schema created for a new object called `songs`. To access `songs`, follow the route that is already in place by going to `http://127.0.0.1:3000/songs`.
+To watch sass, from the public/stylesheets dir, run:
+`node-sass -o css style.scss -w`
 
-Add a new song by going to `http://127.0.0.1:3000/songs/new`.
-<center><img src="https://s3.amazonaws.com/kennyonetime/song_new.png" width="400"></center>
+To generate a new parser for the chord chart, from the /public/js/ dir run: `pegjs --export-var PARSER --format globals -o chordchart.js chordchart.pegjs`
 
-After submitting, this will take you back to the index page where you can now `Show` or `Edit` or `Delete` that song record from the UI
-<center><img src="https://s3.amazonaws.com/kennyonetime/song_all.png" width="600"></center>
-
-All of the REST pieces are baked in as well. You can test them using a multitude of different REST based tools.
-
-## Contribution
-Create a fork of the project into your own reposity. Make all your necessary changes and create a pull request with a description on what was added or removed and details explaining the changes in lines of code. If approved, project owners will merge it.
-
-Licensing
----------
-express-node-mongo-skeleton is freely distributed under the MIT License. See LICENSE for details
-
-starting with nodemon:
-
-node-sass -o css style.scss -w
-from the /public/js/ dir: pegjs --export-var PARSER --format globals -o chordchart.js chordchart.pegjs
+This app was built on top of https://github.com/kacole2/express-node-mongo-skeleton. You can read about installation there.
