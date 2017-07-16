@@ -1,3 +1,13 @@
+$white:               #fff;
+$black:               #000;
+$gray:                #888;
+$lightsteelblue:      lightsteelblue;
+
+$primary-color:       #fbcd4b;
+$pop-color:           #88a550;
+$bg:                  #282623;
+$bg-light:            #a3a599;
+
 * {
   padding: 0;
   margin: 0;
@@ -7,14 +17,14 @@
 
 /*--- SHOW SONGS AND SETLISTS ---*/
 .song, .setlist {
-    border-bottom: 1px solid gray;
-    border-left: 1px solid gray;
-    border-right: 1px solid gray;
+    border-bottom: 1px solid $gray;
+    border-left: 1px solid $gray;
+    border-right: 1px solid $gray;
     display: block;
     overflow: hidden;
     position: relative;
     &:first-of-type {
-      border-top: 1px solid gray;
+      border-top: 1px solid $gray;
     }
     ul {
       display: flex;
@@ -60,12 +70,12 @@
         flex: 1;
         text-align: center;
         padding: 2%;
-        border-right: 1px solid black;
-        background: lightsteelblue;
+        border-right: 1px solid $black;
+        background: $lightsteelblue;
         font-weight: bold;
         cursor: pointer;
         &:active {
-          background: darken(lightsteelblue, 15%);
+          background: darken($lightsteelblue, 15%);
         }
       }
     }
@@ -75,7 +85,7 @@
 
 span.chord {font-weight: bold;}
 .section {
-  background: #fff;
+  background: $white;
   padding: 3%;
   position: relative;
   margin: 1%;
@@ -84,7 +94,7 @@ span.chord {font-weight: bold;}
     font-size: 8px;
     top: 0;
     padding: 1%;
-    color: whitesmoke;
+    color: $white;
     right: 0;
     width: 50px;
     text-align: center;
@@ -96,15 +106,15 @@ textarea {
 legend {
   text-align: center;
   padding: 3%;
-  background: #494949;
-  color: white;
-  border: 1px inset white;
+  background: $bg;
+  color: $white;
+  border: 1px inset $white;
   min-width: 100px;
 }
 fieldset {
-  background: darkgray;
+  background: dark$gray;
   border-radius: 10px;
-  box-shadow: 2px 2px 10px #000;
+  box-shadow: 2px 2px 10px $black;
     &:not(:first-child) {
       margin-top: 5%;
     }
@@ -112,18 +122,18 @@ fieldset {
 div.lyrics {
   &:before {
     content: "Lyrics";
-    background: mediumpurple;
+    background: $bg;
   }
 }
 div.chords {
   &:before {
     content: "Chords";
-    background: yellowgreen;
+    background: $pop-color;
   }
 }
 div.notes {
   z-index: 2;
-  border: 1px dashed sienna;
+  border: 1px dashed $pop-color;
   font-size: xx-small;
   position: absolute;
   right: 5px;
@@ -155,9 +165,9 @@ button {
     position: absolute;
     top: 2%;
     font-size: 1em;
-    background: yellowgreen;
+    background: $pop-color;
     padding: 2%;
-    border: 1px solid gray;
+    border: 1px solid $gray;
   }
 
   .count {
@@ -169,7 +179,7 @@ button {
   }
 
   .time {
-    color: chocolate;
+    color: $bg-light;
     font-weight: bold;
     position: absolute;
     bottom: -20px;
@@ -188,15 +198,15 @@ button {
 
   #bench {
     padding: 3%;
-    background: lightblue;
+    background: $lightsteelblue;
     min-height: 100px;
 
     .song {
       display: inline-block;;
       margin: 0 2px;
       padding: 0 1%;
-      background-color: aliceblue;
-      border-top: 1px solid gray;
+      background-color: $white;
+      border-top: 1px solid $gray;
     }
   }
 
@@ -205,15 +215,15 @@ button {
   .set-container {
     flex: 1;
     min-height: 300px;
-    border: 1px solid #000;
-    background-color: beige;
+    border: 1px solid $black;
+    background-color: $bg-light;
     text-align: center;
   }
 
   /*--- SETLIST ---*/
   .setlist {
     ul {
-      border-bottom: 1px dotted gray;
+      border-bottom: 1px dotted $gray;
       padding: 2% 0;
     }
     li {
@@ -226,11 +236,11 @@ button {
 
 /*--- DATEPICKER ---*/
 div#ui-datepicker-div {
-    background: yellowgreen;
+    background: $pop-color;
     padding: 3%;
 }
 .ui-datepicker-calendar {
-  background: lemonchiffon;
+  background: $bg-light;
   padding: 1%;
 }
 
@@ -243,7 +253,7 @@ nav {
       display: inline-block;
 
     a {
-      color: #fff;
+      color: $white;
     }
   }
 }
@@ -251,12 +261,12 @@ nav {
 #home {
   margin: 0 auto;
   width: 90%;
-  color: #fff;
+  color: $white;
 }
 
 /*--- SET LIST VIEW ---*/
 .content {
-  background: #fff;
+  background: $white;
   padding: 2%;
   #view_setlist {
     display: flex;
@@ -274,7 +284,7 @@ nav {
   margin-bottom: 8%;
   position: relative;
   padding: 2%;
-  background-color: lightgray;
+  background-color: $gray;
 
   .show-song & {
     width: 96%;
@@ -285,21 +295,20 @@ nav {
 
 /*--- GENERAL---*/
 body {
-  background-color: darkslateblue ;
+  background-color: $bg ;
   padding: 0 5%;
 }
 
 h1, h3 {
   padding: 2% 15%;
   text-align: center;
-  display: table;
   margin: 0 auto;
 }
 
 h1 {
-  background-color: yellowgreen;
-  text-shadow: 2px 2px 5px #888;
-  color: #fff;
+  background-color: $pop-color;
+  text-shadow: 2px 2px 5px $gray;
+  color: $white;
 }
 
 h2 {
@@ -316,7 +325,7 @@ input {
 
 label {
   font-size: 1em;
-  color: white;
+  color: $white;
 }
 
 select {
@@ -341,7 +350,7 @@ select {
 /*--- PRINT ---*/
 @media print {
   * {
-    color: #000;
+    color: $black;
   }
    nav {
      display: none;
