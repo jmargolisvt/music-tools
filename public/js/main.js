@@ -51,12 +51,14 @@ function saveSet(set) {
   var jqxhr = $.ajax( {
     method: "PUT",
     dataType: "json",
-    songArray: set,
-    data: {name: "new new"},
-    url:"/setlists/" + window.location.pathname.split( '/' )[2] + "/update"
+    data: {
+      songArray: $("#songArray")[0].value,
+      name: $("#editable_title")[0].innerText.trim(),
+    },
+    url:"/setlists/" + window.location.pathname.split( '/' )[2] + "/edit"
   })
   .done(function(res) {
-    console.log( "success" );
+    console.log( "success!!" );
     console.log( res );
   })
   .fail(function(err) {
@@ -64,7 +66,6 @@ function saveSet(set) {
     console.log( "error" + JSON.stringify(err) );
   })
   .always(function() {
-    // alert( "complete" );
   });
 }
 

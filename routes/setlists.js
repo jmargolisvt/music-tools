@@ -47,10 +47,11 @@ router.route('/')
     .post(function(req, res) {
         // Get values from POST request. These can be done through forms or REST calls. These rely on the "name" attributes for forms
         let {array, name, numSets, date} = req.body;
-        console.log(req);
+        console.log(req.body);
         //call the create function for our database
         mongoose.model('Setlist').create({
             setlistArray: { $push: { song: array } },
+            songArray: array,
             name: name,
             numSets: numSets,
             date: date
@@ -140,7 +141,6 @@ router.route('/:id')
 
 router.route('/:id/update')
   .put(function(req, res) {
-    // console.log(req.body);
       // Get our REST or form values. These rely on the "name" attributes
       var songArray = req.body.songArray;
       //find the document by ID
@@ -189,8 +189,9 @@ router.route('/:id/edit')
                 if (err) {
                   console.log('ERROR: ' + err);
                 } else {
-                   let orderedSongs = songs.sort((a,b) => a.name.toLowerCase() > b.name.toLowerCase())
-	                 res.format({
+                   let orderedSongs = songs.sort((a,b) => a.name.toLowerCase() > b.name.toLowerCase());
+
+                   res.format({
   	                //HTML response will render the 'edit.jade' template
   	                html: function(){
   	                       res.render('setlists/edit', {
@@ -213,13 +214,12 @@ router.route('/:id/edit')
 	//PUT to update a setlist by ID
 	.put(function(req, res) {
 	    // Get our REST or form values. These rely on the "name" attributes
-	    var songArray = req.body.songArray;
-
+	    const {songArray, name} = req.body;
 	    //find the document by ID
 	    mongoose.model('Setlist').findById(req.id, function (err, setlist) {
 	        //update it
 	        setlist.update({
-            //"$addToSet" : { "songArray" :  songArray}
+              name: name,
 	            songArray: songArray
 	        }, function (err, setlistID) {
 	          if (err) {

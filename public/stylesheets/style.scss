@@ -99,6 +99,10 @@ span.chord {font-weight: bold;}
     width: 50px;
     text-align: center;
   }
+  &.chords {
+    text-align: center;
+    font-weight: bold;
+  }
 }
 textarea {
   padding-left: 5px;
@@ -112,7 +116,7 @@ legend {
   min-width: 100px;
 }
 fieldset {
-  background: dark$gray;
+  background: darken($gray, 15%);
   border-radius: 10px;
   box-shadow: 2px 2px 10px $black;
     &:not(:first-child) {
@@ -262,6 +266,9 @@ nav {
   margin: 0 auto;
   width: 90%;
   color: $white;
+  h1 {
+    width: 455px;
+  }
 }
 
 /*--- SET LIST VIEW ---*/

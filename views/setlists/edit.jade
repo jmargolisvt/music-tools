@@ -4,7 +4,9 @@ block content
   #edit_view
     if songArray
       - var ob = JSON.parse(songArray)
-    h3 #{title}
+    h1
+      span#editable_title(contentEditable='true' onBlur='saveSet()') #{title}
+      span  - #{setlist.date.toLocaleDateString('en-US')}
     #all_sets
       - for (var i=1; i<(numSets + 1); i++) {
         .set-container.drop(id="set_#{i}")
@@ -43,3 +45,4 @@ block content
         li.song.edit(data-id='#{song._id}' data-name='#{song.name}' data-time='#{song.time}')
           b
             = song.name
+    input(type='hidden',value='',name='songArray',id='songArray')

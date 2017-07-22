@@ -1,7 +1,7 @@
 var config = {};
 
 config.mongoURI = {
-  development: 'mongodb://localhost/node-testing',
+  development: 'mongodb://localhost/chordz-github',
   test: 'mongodb://localhost/node-test'
 };
 

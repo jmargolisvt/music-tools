@@ -24,6 +24,14 @@ block content
             li
                 = setlist.date.toLocaleDateString('en-US')
             li
+              form(action='/setlists',method='post',
+                   enctype='application/x-www-form-urlencoded')
+                  input(type='hidden',value=setlist.name+' -- COPY',name='name')
+                  input(type='hidden',value=setlist.date,name='date')
+                  input(type='hidden',value=setlist.numSets,name='numSets')
+                  input(type='hidden',value=setlist.songArray,name='array')
+                  button(type='submit') Duplicate
+            li
               form(action='/setlists/#{setlist._id}/edit',method='post',
                    enctype='application/x-www-form-urlencoded',
                    onsubmit="return confirm('Delete this set?');")

@@ -1,10 +1,12 @@
-extends layout
+extends layouts/layout
 
 block content
-  h4= message
-  h5= error.status
-  p
-    button(onclick='history.back(-1)') Back
-  br
-  br
-  pre #{error.stack}
+  div(style='background: #fff; padding: 5%')
+    p
+      button(onclick='history.back(-1)') Back
+    br
+    h4= message
+    h5= error.status
+    br
+    br
+    pre #{error.stack}

@@ -15,12 +15,5 @@ html
         li
           a(href="/songs") Songs
         li.right
-          a(onclick='history.back(-1)' href='#') Back
-        li.right
-          form(action='/setlists/#{setlist._id}/edit' id='setlistEditForm' ,method='post',enctype='application/x-www-form-urlencoded')
-              input(type='hidden',value='',name='songArray',id='songArray')
-              input(type='hidden',value='PUT',name='_method')
-              a(href='#' onclick="document.getElementById('setlistEditForm').submit();") Save
-        li.right
           a(onclick='javascript:window.print()' href='#' alt='Print this page') Print
     block content

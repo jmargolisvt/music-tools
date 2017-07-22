@@ -1,6 +1,6 @@
 # Music Tools -- Chord Charts, Set Lists, etc.
 
-This tool is intended for musicians who want tools to more easily managing a song catalog and write set lists.  It's a Node app with JQuery UI for drag-and-drop goodness.  PEGJS is used to generate a parser for writing interactive chord charts.  It's far from complete, has bugs, etc. but you can help make it better!  Pull requests welcome. :)
+This tool is intended for musicians who want tools to more easily manage a song catalog and write set lists.  It's a Node app with JQuery UI for drag-and-drop goodness.  PEGJS is used to generate a parser for writing interactive chord charts.  It's far from complete, has bugs, etc. but you can help make it better!  Pull requests welcome. :)
 
 To watch sass, from the public/stylesheets dir, run:
 `node-sass -o css style.scss -w`
